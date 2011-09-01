@@ -4,16 +4,18 @@
 	<meta charset="UTF-8">
 	<title>22 Hour Fitness</title>
     <meta name="description" content="22 Hour Fitness" />
-    <meta name="keywords" content="" />
+    <meta name="keywords" content="Personal Trainer, Fitness" />
     <meta name="author" content="Thomas Burns"
     <meta name="robots" content="Fitness, Exercise, Training" />
-    <link rel="stylesheet" href="burns_thomas.css" type="text/css" />
+    <link rel="stylesheet" href="css/burns_thomas.css" type="text/css" />
     
-	<script type="text/javascript" src="burns_thomas.js"></script>
+<script type="text/javascript" src="javascript/burns_thomas.js"></script>
 
+<link href="css/burns_thomas.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
+<div id="fit_form">
 <h1>22 Hour Fitness</h1>
 <h2>Personal Trainer Scheduler</h2>
 <form action="" method="post">
@@ -99,7 +101,7 @@
         	<li>
             	<label for="range">Fitness Level</label>
                 <input type="range" min="1" max="10" value="1" onchange="showValue(this.value)" />
-<span id="range">10</span>
+<span id="range">1</span>
            
             </li>
   
@@ -147,10 +149,10 @@
 <fieldset>
     	<legend>Notes to Personal Trainer</legend>
         	<ul>
-            	<li>To be added to our Mail Listing please check the box below.
+            	<li>Questions or concerns please write a message to the personal trainer
                 <li>
                 	<label for="Notes">Notes</label>
-                    <textarea id="notes"</textarea>
+                    <textarea id="notes"></textarea>
                 </li>
             
             
@@ -159,5 +161,6 @@
     </fieldset>
 	<input type="submit" value="Get Fit!!!"/>
 </form>
+</div>
 </body>
 </html>
