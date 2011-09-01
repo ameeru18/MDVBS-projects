@@ -19,7 +19,8 @@
 <form action="" method="post">
 	<fieldset>
     	<legend>Appointment Time</legend>
-    	<ol>
+    	<ul>
+        	<li>Select an Appointment Time.
         	<li>
             	<label for="date">Date</label>
                 <input type="date" placeholder="01/01/2012" id="date"required>
@@ -49,12 +50,13 @@
                     </optgroup>
                   </select>  
             </li>
-        </ol>
+        </ul>
     </fieldset>
     
     <fieldset>
 		<legend>Client Information</legend>
-		<ol>
+		<ul>
+        	<li>Please enter your personal information.
 			<li>
 				<label for="name">Name</label>
 				<input type="text" placeholder="First & Last Name" id="name"required>
@@ -75,8 +77,73 @@
 				<input type="tel" placeholder="(222) 222-2222" id="phone"required>
 			</li>
             
-		</ol>
+            <li>
+            	<label for="male">Male</label>
+                <input type="radio" value="Male" id="male" name="gender"/>
+            
+            </li>
+            
+            <li>
+            	<label for="female">Female</label>
+                <input type="radio" value="FeMale" id="female" name="gender"/>
+            
+            </li>
+           
+		</ul>
 	</fieldset>
+    
+    <fieldset>
+    	<legend>Fitness Level</legend>
+        <ul>
+        	<li>Select your skill level.
+        	<li>
+            	<label for="range">Fitness Level</label>
+                <input type="range" min="1" max="10" value="1" onchange="showValue(this.value)" />
+<span id="range">0</span>
+           
+            </li>
+  
+        </ul>
+    </fieldset>
+    
+    <fieldset>
+    
+    	<legend>Fitness Packages</legend>
+        <ul>
+        
+        	<li>Please chose a fitness package.
+            <li>
+            	<label for="cardio">Cardio</label>
+                <input type="radio" value="Cardo" id="cardio" name="packages"/>
+            </li>
+            
+            <li>
+            	<label for="weights">Weights</label>
+                <input type="radio" value="Weights" id="weights" name="packages"/>
+            </li>            
+        	
+            <li>
+            	<label for="resistance">Resistance</label>
+                <input type="radio" value="Resistance" id="resistance" name="packages"/>
+            </li>
+        
+        </ul>    
+    </fieldset>
+    
+    <fieldset>
+    	<legend>Mailing List</legend>
+        	<ul>
+            	<li>To be added to the 22 Hour Fitness Mail Listing please check the box below.
+                <li>
+                	<label for="mail_listing">Mail Listing</label>
+                    <input type="checkbox" value="Add to Mail List" id="mail_listing"/>
+                </li>
+            
+            
+            </ul>
+    
+    </fieldset>
+
 </form>
 </body>
 </html>
