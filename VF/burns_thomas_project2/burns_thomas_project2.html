@@ -1,7 +1,9 @@
 <!DOCTYPE HTML>
-<!--Visual Frame Works
+<!--
+Visual Frame Works
 09/2011
-Thomas Burns-->
+Thomas Burns
+-->
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -27,7 +29,7 @@ Thomas Burns-->
 	<fieldset><!--Beginning of field set-->	
     	<legend>Appointment Time</legend>
     	<ul>
-        	<li>Select an Appointment Time.
+        	<li id="cmt">Select an Appointment Time.
         	<li>
             	<label for="date">Date</label>
                 <input type="date" placeholder="01/01/2012" id="date"required>
@@ -63,7 +65,7 @@ Thomas Burns-->
     <fieldset><!--Beginning of fieldset-->
 		<legend>Client Information</legend>
 		<ul>
-        	<li>Please enter your personal information.
+        	<li id="cmt">Please enter your personal information.
 			<li>
 				<label for="name">Name</label>
 				<input type="text" placeholder="First & Last Name" id="name"required>
@@ -102,7 +104,7 @@ Thomas Burns-->
     <fieldset><!--Beginning of field set-->
     	<legend>Fitness Level</legend>
         <ul>
-        	<li>Select your skill level.
+        	<li id="cmt">Select your skill level.
         	<li>
             	<label for="range">Fitness Level</label>
                 <input type="range" min="1" max="10" value="1" onchange="showValue(this.value)" />
@@ -118,7 +120,7 @@ Thomas Burns-->
     	<legend>Fitness Packages</legend>
         <ul>
         
-        	<li>Please chose a fitness package.
+        	<li id="cmt">Please chose a fitness package.
             <li>
             	<label for="cardio">Cardio</label>
                 <input type="radio" value="Cardo" id="cardio" name="packages"/>
@@ -140,7 +142,7 @@ Thomas Burns-->
     <fieldset><!--Beginning of field set-->
     	<legend>Mailing List</legend>
         	<ul>
-            	<li>To be added to our Mail Listing please check the box below.
+            	<li id="cmt">To be added to our Mail Listing please check the box below.
                 <li>
                 	<label for="mail_listing">Mail Listing</label>
                     <input type="checkbox" value="Add to Mail List" id="mail_listing"/>
@@ -154,7 +156,7 @@ Thomas Burns-->
 <fieldset><!--Beginning of field set-->
     	<legend>Notes to Personal Trainer</legend>
         	<ul>
-            	<li>Questions or concerns please write a message to the personal trainer
+            	<li id="cmt">Questions or concerns please write a message to the personal trainer
                 <li>
                 	<label for="Notes">Notes</label>
                     <textarea id="notes"></textarea>
