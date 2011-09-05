@@ -43,6 +43,13 @@ legend {
 	text-decoration: underline;
 	text-align: center;
 }
+#fit_form form fieldset ul li label {
+	display: block;
+	padding-top: 5px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+}
 
 #fit_form h2 {
 	font-family: Arial, Helvetica, sans-serif;
