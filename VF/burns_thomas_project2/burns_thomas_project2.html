@@ -1,0 +1,173 @@
+<!DOCTYPE HTML>
+<!--Visual Frame Works
+09/2011
+Thomas Burns-->
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>22 Hour Fitness</title>
+    <meta name="description" content="22 Hour Fitness" />
+    <meta name="keywords" content="Personal Trainer, Fitness" />
+    <meta name="author" content="Thomas Burns"
+    <meta name="robots" content="Fitness, Exercise, Training" />
+    <link rel="stylesheet" href="css/burns_thomas.css" type="text/css" />
+    
+
+
+
+</head>
+
+<body>
+<div id="fit_form">
+<h1>22 Hour Fitness</h1>
+<h2>Personal Trainer Scheduler</h2>
+<form action="" method="post">
+
+
+	<fieldset><!--Beginning of field set-->	
+    	<legend>Appointment Time</legend>
+    	<ul>
+        	<li>Select an Appointment Time.
+        	<li>
+            	<label for="date">Date</label>
+                <input type="date" placeholder="01/01/2012" id="date"required>
+            </li>
+            
+        	<li>
+            	<label for="time">Time</label>
+                <select id="time">
+                	<optgroup label="Morning">
+                    <option value="8:00">8:00 am</option>
+                    <option value="9:00">9:00 am</option>
+                    <option value="10:00">10:00 am</option>
+                    </optgroup>
+                    
+                    <optgroup label="Afternoon">
+                    <option value="1:00">1:00 pm</option>
+                    <option value="2:00">2:00 pm</option>
+                    <option value="3:00">3:00 pm</option>
+                    <option value="4:00">4:00 pm</option>
+                    </optgroup>
+                    
+                    <optgroup label="Evening">
+                    <option value="6:00">6:00 pm</option>
+                    <option value="7:00">7:00 pm</option>
+                    <option value="8:00">8:00 pm</option>
+                    <option value="9:00">9:00 pm</option>
+                    </optgroup>
+                  </select>  
+            </li>
+        </ul>
+    </fieldset><!--End of fieldset-->
+    
+    <fieldset><!--Beginning of fieldset-->
+		<legend>Client Information</legend>
+		<ul>
+        	<li>Please enter your personal information.
+			<li>
+				<label for="name">Name</label>
+				<input type="text" placeholder="First & Last Name" id="name"required>
+			</li>
+            
+            <li>
+				<label for="dob">D.O.B</label>
+                <input type="date" placeholder="01/01/2012" id="dob"/>
+			</li>
+            
+            <li>
+				<label for="email">Email</label>
+				<input type="email" placeholder="example@domain.com" id="email"required>
+			</li>
+            
+            <li>
+				<label for="phone">Phone</label>
+				<input type="tel" placeholder="(222) 222-2222" id="phone"required>
+			</li>
+            
+            <li>
+            	<label for="male">Male</label>
+                <input type="radio" value="Male" id="male" name="gender"/>
+            
+            </li>
+            
+            <li>
+            	<label for="female">Female</label>
+                <input type="radio" value="FeMale" id="female" name="gender"/>
+            
+            </li>
+           
+		</ul>
+	</fieldset><!--End of fieldset-->
+    
+    <fieldset><!--Beginning of field set-->
+    	<legend>Fitness Level</legend>
+        <ul>
+        	<li>Select your skill level.
+        	<li>
+            	<label for="range">Fitness Level</label>
+                <input type="range" min="1" max="10" value="1" onchange="showValue(this.value)" />
+<span id="range">1</span>
+           
+            </li>
+  
+        </ul>
+    </fieldset><!--End of fieldset-->
+    
+    <fieldset><!--Beginning of field set-->
+    
+    	<legend>Fitness Packages</legend>
+        <ul>
+        
+        	<li>Please chose a fitness package.
+            <li>
+            	<label for="cardio">Cardio</label>
+                <input type="radio" value="Cardo" id="cardio" name="packages"/>
+            </li>
+            
+            <li>
+            	<label for="weights">Weights</label>
+                <input type="radio" value="Weights" id="weights" name="packages"/>
+            </li>            
+        	
+            <li>
+            	<label for="resistance">Resistance</label>
+                <input type="radio" value="Resistance" id="resistance" name="packages"/>
+            </li>
+        
+        </ul>    
+    </fieldset><!--End of fieldset-->
+    
+    <fieldset><!--Beginning of field set-->
+    	<legend>Mailing List</legend>
+        	<ul>
+            	<li>To be added to our Mail Listing please check the box below.
+                <li>
+                	<label for="mail_listing">Mail Listing</label>
+                    <input type="checkbox" value="Add to Mail List" id="mail_listing"/>
+                </li>
+            
+            
+            </ul>
+    
+    </fieldset><!--End of fieldset-->
+
+<fieldset><!--Beginning of field set-->
+    	<legend>Notes to Personal Trainer</legend>
+        	<ul>
+            	<li>Questions or concerns please write a message to the personal trainer
+                <li>
+                	<label for="Notes">Notes</label>
+                    <textarea id="notes"></textarea>
+                </li>
+            
+            
+            </ul>
+    
+    </fieldset><!--End of fieldset-->
+	<input type="submit" value="Get Fit!!!"/>
+    <input type="reset" value="Clear Form"/>
+</form>
+</div>
+<script type="text/javascript" src="javascript/burns_thomas.js"></script>
+</body>
+</html>
