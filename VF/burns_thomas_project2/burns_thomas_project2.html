@@ -19,7 +19,8 @@ Thomas Burns
 </head>
 
 <body>
-<div id="fit_form">
+<div id="site_wrap"> 
+<div id="fit_form"> 
 <h1>22 Hour Fitness</h1>
 <h2>Personal Trainer Scheduler</h2>
 <form action="JavaScript:storeItems()" method="post">
@@ -169,8 +170,10 @@ Thomas Burns
     <input type="reset" value="Clear Form"/>
 </form>
 </div>
+<div id="clear_sect"> <!--clear_sect-->
 <p id="clear"><a onMouseOver="mouseHover();" onMouseOut="mouseOut();" href="#" onClick="clearLocal(); location.reload();">clear local storage</a></p>
-
+</div> <!--clear_sect-->
+</div> <!--site_wrap-->
 <script type="text/javascript" src="javascript/burns_thomas.js"></script>
 <script>getItems();</script>
 

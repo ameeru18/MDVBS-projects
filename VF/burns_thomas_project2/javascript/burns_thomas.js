@@ -20,6 +20,10 @@ function getItems() {
 		var dob	 	= localStorage.getItem("appdob");
 		var email 	= localStorage.getItem("appemail");
 		var phone 	= localStorage.getItem("appphone");
+		var male 	= localStorage.getItem("appmale");
+		var female 	= localStorage.getItem("appfemale");
+		var range 	= localStorage.getItem("apprange");
+		var notes 	= localStorage.getItem("appnotes");
 		
 		var viewInfo = [
 			date,
@@ -27,7 +31,11 @@ function getItems() {
 			name,
 			dob,
 			email,
-			phone
+			phone,
+			male,
+			female,
+			range,
+			notes
 		];
 		
 		alert(viewInfo);
@@ -44,10 +52,20 @@ function storeItems(id) {
 	var dob 	= document.getElementById("dob").value;
 	var email 	= document.getElementById("email").value;
 	var phone 	= document.getElementById("phone").value;
+	var male 	= document.getElementById("male").value;
+	var female 	= document.getElementById("female").value;
+	var range 	= document.getElementById("range").value;
+	var notes 	= document.getElementById("notes").value;
+	localStorage.setItem("appdate", date);
+	localStorage.setItem("apptime", time);
 	localStorage.setItem("appname", name);
 	localStorage.setItem("appdob", dob);
 	localStorage.setItem("appemail", email);
 	localStorage.setItem("appphone", phone);
+	localStorage.setItem("appmale", male);
+	localStorage.setItem("appfemale", female);
+	localStorage.setItem("apprange", range);
+	localStorage.setItem("appnotes", notes);
 };
 
 //Clears the local Storage to reveal form
