@@ -43,6 +43,7 @@ legend {
 	text-decoration: underline;
 	text-align: center;
 }
+
 #fit_form form fieldset ul li label {
 	display: block;
 	padding-top: 5px;
@@ -59,4 +60,13 @@ legend {
 
 body {
 	background-color: #ccc;
+}
+
+clear {
+	display:none;
+	margin: 15px;
+}
+	
+#clear a {
+	color:#F00;	
 }

@@ -12,10 +12,9 @@ Thomas Burns
     <meta name="keywords" content="Personal Trainer, Fitness" />
     <meta name="author" content="Thomas Burns"
     <meta name="robots" content="Fitness, Exercise, Training" />
+    
     <link rel="stylesheet" href="css/burns_thomas.css" type="text/css" />
     
-
-
 
 </head>
 
@@ -23,7 +22,7 @@ Thomas Burns
 <div id="fit_form">
 <h1>22 Hour Fitness</h1>
 <h2>Personal Trainer Scheduler</h2>
-<form action="" method="post">
+<form action="JavaScript:storeItems()" method="post">
 
 
 	<fieldset><!--Beginning of field set-->	
@@ -68,7 +67,7 @@ Thomas Burns
         	<li id="cmt">Please enter your personal information.
 			<li>
 				<label for="name">Name</label>
-				<input type="text" placeholder="First & Last Name" id="name"required>
+				<input type="text" placeholder="First & Last Name" id="name">
 			</li>
             
             <li>
@@ -78,12 +77,12 @@ Thomas Burns
             
             <li>
 				<label for="email">Email</label>
-				<input type="email" placeholder="example@domain.com" id="email"required>
+				<input type="email" placeholder="example@domain.com" id="email">
 			</li>
             
             <li>
 				<label for="phone">Phone</label>
-				<input type="tel" placeholder="(222) 222-2222" id="phone"required>
+				<input type="tel" placeholder="(222) 222-2222" id="phone">
 			</li>
             
             <li>
@@ -166,10 +165,14 @@ Thomas Burns
             </ul>
     
     </fieldset><!--End of fieldset-->
-	<input type="submit" value="Get Fit!!!"/>
+	<p><input type="submit" value="Get Fit!!!"/></p>
     <input type="reset" value="Clear Form"/>
 </form>
 </div>
+<p id="clear"><a onMouseOver="mouseHover();" onMouseOut="mouseOut();" href="#" onClick="clearLocal(); location.reload();">clear local storage</a></p>
+
 <script type="text/javascript" src="javascript/burns_thomas.js"></script>
+<script>getItems();</script>
+
 </body>
 </html>
