@@ -21,10 +21,12 @@ Thomas Burns
 <body>
 <div id="site_wrap"> 
 <div id="fit_form"> 
-<h1>22 Hour Fitness</h1>
-<h2>Personal Trainer Scheduler</h2>
-<form action="JavaScript:storeItems()" method="post">
 
+<h1>22 Hour Fitness</h1>
+
+<h2>Personal Trainer Scheduler</h2>
+
+<form name="fitForm22" action="JavaScript:storeItems()" method="post"/>
 
 	<fieldset><!--Beginning of field set-->	
     	<legend>Appointment Time</legend>
@@ -145,7 +147,7 @@ Thomas Burns
             	<li id="cmt">To be added to our Mail Listing please check the box below.
                 <li>
                 	<label for="mail_listing">Mail Listing</label>
-                    <input type="checkbox" value="Add to Mail List" id="mail_listing"/>
+                    <input type="checkbox" id="mail_listing"/>
                 </li>
             
             
@@ -166,16 +168,16 @@ Thomas Burns
             </ul>
     
     </fieldset><!--End of fieldset-->
-	<p><input type="submit" value="Get Fit!!!"/></p>
-    <input type="reset" value="Clear Form"/>
+		<input type="submit" value="Get Fit!!!" onClick="validate"/>
+    	<input name="Reset" type="reset" value="Clear Form"/>
 </form>
 </div>
 <div id="clear_sect"> <!--clear_sect-->
-<p id="clear"><a onMouseOver="mouseHover();" onMouseOut="mouseOut();" href="#" onClick="clearLocal(); location.reload();">clear local storage</a></p>
+<p id="clear"><a href="#" onClick="clearLocal(); location.reload();">clear local storage</a></p>
 </div> <!--clear_sect-->
 </div> <!--site_wrap-->
 <script type="text/javascript" src="javascript/burns_thomas.js"></script>
-<script>getItems();</script>
+
 
 </body>
 </html>
