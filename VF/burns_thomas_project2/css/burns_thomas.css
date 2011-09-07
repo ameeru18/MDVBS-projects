@@ -15,6 +15,11 @@ Thomas Burns
 	padding-left: 10px;
 	border: 2px solid #000;
 }
+#site_wrap {
+	width: 640px;
+	margin-right: auto;
+	margin-left: auto;
+}
 
 legend {
 	font-weight: bold;
@@ -25,6 +30,10 @@ legend {
 
 #fit_form form fieldset ul li {
 	list-style-type: none;
+}
+#clear_sect {
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
 }
 
 #cmt {
@@ -60,13 +69,4 @@ legend {
 
 body {
 	background-color: #ccc;
-}
-
-clear {
-	display:none;
-	margin: 15px;
-}
-	
-#clear a {
-	color:#F00;	
 }

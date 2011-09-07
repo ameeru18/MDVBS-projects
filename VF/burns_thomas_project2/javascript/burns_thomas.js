@@ -5,14 +5,6 @@
 //This is to shorten the console log entry
 function con (message) {console.log(message)};
 
-//This function will validate my code to ensure there are no errors as well as to acknowledge my checkboxes and radio buttons
-function validate () {
-	if (document.fitForm22.mail_listing.checked)
-		alert("You will have mail");
-	else {
-		alert("No mail for you!");
-	}
-};
 
 //This causes the sliderbar to show its value as it is slid back and forth
 function showValue(newValue)
