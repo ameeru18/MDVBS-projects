@@ -7,9 +7,40 @@ function con (message) {console.log(message)};
 
 
 //This causes the sliderbar to show its value as it is slid back and forth
-function showValue(newValue)
-{
+function showValue(newValue){
 	document.getElementById("range").innerHTML=newValue;
+};
+
+/*//Validation section
+function initForms() {
+	for (var i=0; i< document.forms.length; i++) {
+		document.forms[i].onsubmit = function() {return validForm();}
+	}
+}
+
+function validForm() {
+	var allGood = true;
+	var allTags = document.getElementsByTagName("*");
+
+	for (var i=0; i<allTags.length; i++) {
+		if (!validTag(allTags[i])) {
+			allGood = false;
+		}
+	}*/
+	
+function initForm(){
+	for (var i=0; i< document.fitForm22.length; i++) {
+	document.fitForm22[i].onsubmit = function() {return validForm();}
+	}
+};
+
+function validForm() {
+	var allGood = true;
+	var allTags = document.getElementsByTagName("*");
+	for (var i=0; i<allTags.length; i++) {
+		if (!validTag(allTags[i]));
+		allGood = false;
+	}
 };
 
 //This section is for saving my form data to local storage and reporting it to browser via alert message
@@ -61,5 +92,4 @@ function storeItems(id) {
 function clearLocal() {
 	localStorage.clear();
 	return false;
-	
 };
