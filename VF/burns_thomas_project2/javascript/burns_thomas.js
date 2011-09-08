@@ -16,14 +16,22 @@ function showValue(newValue){
 //I will have to combine these validators into one function to make them all run back to back
 
 function validateForm(){
+	
+	if ( document.forms["fitForm22"]["time"].selectedIndex == 0 )
+    {
+        alert ( "Please select your time slot." );
+        valid = false;
+    };
+	
 	var textCheck=document.forms["fitForm22"]["name"].value;
 	if (textCheck==null || textCheck=="")
 	  {
 	  alert("Name must be filled out");
+	  ["fitForm22"]["name"].focus();
 	  return false;
 	};
 	  
-	  var mailCheck=document.forms["fitForm22"]["email"].value;
+	var mailCheck=document.forms["fitForm22"]["email"].value;
 	var atpos=mailCheck.indexOf("@");
 	var dotpos=mailCheck.lastIndexOf(".");
 	if (atpos<1 || dotpos<atpos+2 || dotpos+2>=mailCheck.length)
@@ -31,6 +39,7 @@ function validateForm(){
 	  alert("Not a valid e-mail address");
 	  return false;
 	};
+	
  	if ( ( document.forms["fitForm22"] ["gender"][0].checked == false )
     && ( document.forms["fitForm22"] ["gender"][1].checked == false ) )
     {
@@ -44,6 +53,14 @@ function validateForm(){
         alert ( "Please choose your Fitness Package: Cardio, Weights or Resistance" );
         valid = false;
     };
+	
+	/*if ( document.forms["fitForm22"] ["mail_listing"].checked == false )
+    {
+        alert ( "Are you sure we have really great coupons." );
+        valid = false;
+    };*/
+	
+	
   
 };//End of validateForm functions
 

@@ -5,20 +5,25 @@ Thomas Burns
 */
 
 
-#fit_form {
-	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-	background-color: #CCC;
-	margin-right: auto;
-	margin-left: auto;
-	width: 616px;
-	padding-right: 10px;
-	padding-left: 10px;
-	border: 2px solid #000;
-}
+
 #site_wrap {
 	width: 640px;
 	margin-right: auto;
 	margin-left: auto;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+#head_div {
+	margin-right: auto;
+	margin-left: auto;
+	padding-top: 10px;
+	background-color: #666;
+	width: 640px;
+	padding-bottom: 10px;
+}
+#clear_sect {
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	padding-left: 10px;
 }
 
 legend {
@@ -28,12 +33,8 @@ legend {
 	text-decoration: underline;
 }
 
-#fit_form form fieldset ul li {
+form fieldset ul li {
 	list-style-type: none;
-}
-#clear_sect {
-	font-family: Arial, Helvetica, sans-serif;
-	font-weight: bold;
 }
 
 #cmt {
@@ -46,14 +47,15 @@ legend {
 	padding-left: 0px;
 }
 
-#fit_form h1 {
+h1 {
 	font-family: Arial, Helvetica, sans-serif;
 	font-weight: bolder;
 	text-decoration: underline;
 	text-align: center;
+	color: #FFF;
 }
 
-#fit_form form fieldset ul li label {
+form fieldset ul li label {
 	display: block;
 	padding-top: 5px;
 	padding-right: 0px;
@@ -61,10 +63,11 @@ legend {
 	padding-left: 0px;
 }
 
-#fit_form h2 {
+h2 {
 	font-family: Arial, Helvetica, sans-serif;
 	font-weight: bold;
 	text-align: center;
+	color: #FFF;
 }
 
 body {
