@@ -14,60 +14,38 @@ function showValue(newValue){
 //Validation section
 
 //I will have to combine these validators into one function to make them all run back to back
-function validateForm()
-{
-var textCheck=document.forms["fitForm22"]["name"].value;
-if (textCheck==null || textCheck=="")
-  {
-  alert("Name must be filled out");
-  return false;
-  }
-  
-  var mailCheck=document.forms["fitForm22"]["email"].value;
-var atpos=mailCheck.indexOf("@");
-var dotpos=mailCheck.lastIndexOf(".");
-if (atpos<1 || dotpos<atpos+2 || dotpos+2>=mailCheck.length)
-  {
-  alert("Not a valid e-mail address");
-  return false;
-  }
-  
-};
 
-
-
-
-
-/*function initForms() {
-	for (var i=0; i< document.forms.length; i++) {
-		document.forms[i].onsubmit = function() {return validForm();}
-	}
-}
-
-function validForm() {
-	var allGood = true;
-	var allTags = document.getElementsByTagName("*");
-
-	for (var i=0; i<allTags.length; i++) {
-		if (!validTag(allTags[i])) {
-			allGood = false;
-		}
-	}*/
+function validateForm(){
+	var textCheck=document.forms["fitForm22"]["name"].value;
+	if (textCheck==null || textCheck=="")
+	  {
+	  alert("Name must be filled out");
+	  return false;
+	};
+	  
+	  var mailCheck=document.forms["fitForm22"]["email"].value;
+	var atpos=mailCheck.indexOf("@");
+	var dotpos=mailCheck.lastIndexOf(".");
+	if (atpos<1 || dotpos<atpos+2 || dotpos+2>=mailCheck.length)
+	  {
+	  alert("Not a valid e-mail address");
+	  return false;
+	};
+ 	if ( ( document.forms["fitForm22"] ["gender"][0].checked == false )
+    && ( document.forms["fitForm22"] ["gender"][1].checked == false ) )
+    {
+        alert ( "Please choose your Gender: Male or Female" );
+        valid = false;
+    };
 	
-function initForm(){
-	for (var i=0; i< document.fitForm22.length; i++) {
-	document.fitForm22[i].onsubmit = function() {return validForm();}
-	}
-};
-
-function validForm() {
-	var allGood = true;
-	var allTags = document.getElementsByTagName("*");
-	for (var i=0; i<allTags.length; i++) {
-		if (!validTag(allTags[i]));
-		allGood = false;
-	}
-};
+	if ( ( document.forms["fitForm22"] ["packages"][0].checked == false )
+    && ( document.forms["fitForm22"] ["packages"][1].checked == false ) )
+    {
+        alert ( "Please choose your Fitness Package: Cardio, Weights or Resistance" );
+        valid = false;
+    };
+  
+};//End of validateForm functions
 
 //This section is for saving my form data to local storage and reporting it to browser via alert message
 function getItems() {
