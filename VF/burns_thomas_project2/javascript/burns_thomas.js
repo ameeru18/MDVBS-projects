@@ -11,8 +11,34 @@ function showValue(newValue){
 	document.getElementById("range").innerHTML=newValue;
 };
 
-/*//Validation section
-function initForms() {
+//Validation section
+
+//I will have to combine these validators into one function to make them all run back to back
+function validateForm()
+{
+var textCheck=document.forms["fitForm22"]["name"].value;
+if (textCheck==null || textCheck=="")
+  {
+  alert("Name must be filled out");
+  return false;
+  }
+  
+  var mailCheck=document.forms["fitForm22"]["email"].value;
+var atpos=mailCheck.indexOf("@");
+var dotpos=mailCheck.lastIndexOf(".");
+if (atpos<1 || dotpos<atpos+2 || dotpos+2>=mailCheck.length)
+  {
+  alert("Not a valid e-mail address");
+  return false;
+  }
+  
+};
+
+
+
+
+
+/*function initForms() {
 	for (var i=0; i< document.forms.length; i++) {
 		document.forms[i].onsubmit = function() {return validForm();}
 	}

@@ -12,6 +12,7 @@ Thomas Burns
     <meta name="keywords" content="Personal Trainer, Fitness" />
     <meta name="author" content="Thomas Burns"
     <meta name="robots" content="Fitness, Exercise, Training" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
     <link rel="stylesheet" href="css/burns_thomas.css" type="text/css" />
     
@@ -28,7 +29,7 @@ Thomas Burns
 
 <h2>Personal Trainer Scheduler</h2>
 
-<form name="fitForm22" id="fitForm22" action="JavaScript:storeItems()" method="post"/>
+<form name="fitForm22" id="fitForm22" action="JavaScript:storeItems()" method="post" onsubmit = "return validateForm()"/>
 
 	<fieldset><!--Beginning of field set-->	
     	<legend>Appointment Time</legend>
@@ -180,7 +181,6 @@ Thomas Burns
 </div> <!--site_wrap-->
 
 <script type="text/javascript" src="javascript/burns_thomas.js"></script>
-<script type="text/javascript" src="javascript/totalValidation.js"></script>
 <script>getItems();</script>
 </body>
 </html>
