@@ -13,17 +13,42 @@ function showValue(newValue){
 
 //Validation section
 
-//I will have to combine these validators into one function to make them all run back to back
 
-function validateForm(){
+
+function validateForm() {
+	//Create Fields Array
+	var fields = new Array;
+	var fields = [document.getElementById('date'),
+				  document.getElementById('time'),
+				  document.getElementById('name'),
+				  document.getElementById('dob'),
+				  document.getElementById('email'),
+				  document.getElementById('phone'),
+				  //document.getElementById('gender'),
+				  document.getElementById('notes')
+	];
+//Create Variable to Keep Track of Errors
+	var err = 0;
+//Start Validation Loop
+	for (i=0;i<fields.length;i++){
+//Check Fields in Array to Make Sure they are not Empty
+	if (fields[i].value == ""){
+	err++;
+};
+};
+//Close Loop
+//Check That There are No Errors
+	if (err === 0){
+//Submit Form
+	document.fitForm22.submit();
+	}else {
+	//If there are errors, return false and alert the user
+	alert("Please Fill Out All Of The Fields");
+	return false;
+};
+};
 	
-	if ( document.forms["fitForm22"]["time"].selectedIndex == 0 )
-    {
-        alert ( "Please select your time slot." );
-        valid = false;
-    };
-	
-	var textCheck=document.forms["fitForm22"]["name"].value;
+	/*var textCheck=document.forms["fitForm22"]["name"].value;
 	if (textCheck==null || textCheck=="")
 	  {
 	  alert("Name must be filled out");
@@ -52,7 +77,7 @@ function validateForm(){
     {
         alert ( "Please choose your Fitness Package: Cardio, Weights or Resistance" );
         valid = false;
-    };
+    };*/
 	
 	/*if ( document.forms["fitForm22"] ["mail_listing"].checked == false )
     {
@@ -62,7 +87,7 @@ function validateForm(){
 	
 	
   
-};//End of validateForm functions
+//End of validateForm functions
 
 //This section is for saving my form data to local storage and reporting it to browser via alert message
 function getItems() {
@@ -73,6 +98,7 @@ function getItems() {
 		var dob	 	= localStorage.getItem("appdob");
 		var email 	= localStorage.getItem("appemail");
 		var phone 	= localStorage.getItem("appphone");
+		var gender 	= localStorage.getItem("appgender");
 		var notes 	= localStorage.getItem("appnotes");
 		
 		var viewInfo = [
@@ -82,11 +108,12 @@ function getItems() {
 			dob,
 			email,
 			phone,
+			gender,
 			notes
 		];
 		
 		alert(viewInfo);
-		document.getElementById("fit_form").style.display = "none";
+		document.getElementById("fitForm22").style.display = "none";
 		var clearLink = document.getElementById("clear");
 		clearLink.style.display = "block";
 	};
@@ -99,6 +126,7 @@ function storeItems(id) {
 	var dob 	= document.getElementById("dob").value;
 	var email 	= document.getElementById("email").value;
 	var phone 	= document.getElementById("phone").value;
+	var gender 	= document.getElementsByName("gender").valuel
 	var notes 	= document.getElementById("notes").value;
 	localStorage.setItem("appdate", date);
 	localStorage.setItem("apptime", time);
@@ -106,6 +134,7 @@ function storeItems(id) {
 	localStorage.setItem("appdob", dob);
 	localStorage.setItem("appemail", email);
 	localStorage.setItem("appphone", phone);
+	localStorage.setItem("appgender", gender);
 	localStorage.setItem("appnotes", notes);
 };
 

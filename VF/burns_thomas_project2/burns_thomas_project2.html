@@ -127,17 +127,17 @@ Thomas Burns
       <li id="cmt">Please chose a fitness package.</li>
       <li>
         <label for="cardio">Cardio</label>
-        <input type="radio" value="Cardo" name="packages"/>
+        <input type="radio" value="Cardo" name="packages" onClick="0"/>
         </li>
       
       <li>
         <label for="weights">Weights</label>
-        <input type="radio" value="Weights" name="packages"/>
+        <input type="radio" value="Weights" name="packages" onClick="0"/>
         </li>            
       
       <li>
         <label for="resistance">Resistance</label>
-        <input type="radio" value="Resistance" name="packages"/>
+        <input type="radio" value="Resistance" name="packages" onClick="0"/>
         </li>
       
       </ul>    
@@ -163,14 +163,14 @@ Thomas Burns
       <li id="cmt">Questions or concerns please write a message to the personal trainer</li>
       <li>
         <label for="Notes">Notes</label>
-        <textarea id="notes"></textarea>
+        <textarea id="notes" cols="40" rows="8"></textarea>
         </li>
       
       
       </ul>
     
   </fieldset><!--End of fieldset-->
-  <input type="submit" value="Get Fit!!!" onClick="validate"/>
+  <input type="submit" value="Get Fit!!!" onClick="validateForm"/>
   <input name="Reset" type="reset" value="Clear Form"/>
   </form>
   
