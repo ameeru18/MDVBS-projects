@@ -20,7 +20,7 @@ function validateForm() {
 	var getdate = document.forms[0]["date"].value;
 	if (getdate == "") {
 		document.getElementById("date").style.border = "1px solid red";
-		var slap = prompt("Enter day you want to workout to proceed", "date");
+		var slap = prompt("Enter the day you want to workout to proceed", "");
 		if (slap != null && slap != "") {
 			document.forms[0]["date"].value = slap;	
 		}	
@@ -33,7 +33,7 @@ function validateForm() {
 	var getFirstName = document.forms[0]["firstName"].value;
 	if (getFirstName == "") {
 		document.getElementById("firstName").style.border = "1px solid red";
-		var slap = prompt("Enter your first name to proceed", "");
+		var slap = prompt("Enter your first name to proceed", "First Name");
 		if (slap != null && slap != "") {
 			document.forms[0]["firstName"].value = slap;	
 		}	
@@ -46,7 +46,7 @@ function validateForm() {
 	var getLastName = document.forms[0]["lastName"].value;
 	if (getLastName == "") {
 		document.getElementById("lastName").style.border = "1px solid red";
-		var slap = prompt("Enter your last name to proceed", "");
+		var slap = prompt("Enter your last name to proceed", "Last Name");
 		if (slap != null && slap != "") {
 			document.forms[0]["lastName"].value = slap;	
 		}	
@@ -54,6 +54,20 @@ function validateForm() {
 	}
 		else {
 			document.getElementById("lastName").style.border = "1px solid #ccc";
+		}
+		
+	//Validate Date of Birth	
+	var getdob = document.forms[0]["dob"].value;
+	if (getdob == "") {
+		document.getElementById("dob").style.border = "1px solid red";
+		var slap = prompt("Enter your date of birth to proceed", "12/12/1900");
+		if (slap != null && slap != "") {
+			document.forms[0]["dob"].value = slap;	
+		}	
+		return false;
+	}
+		else {
+			document.getElementById("dob").style.border = "1px solid #ccc";
 		}	
 		alert("Form has been Submitted. Thank you.");
 	
@@ -72,8 +86,9 @@ function getItems() {
 		var dob	 		= localStorage.getItem("appdob");
 		var email 		= localStorage.getItem("appemail");
 		var phone 		= localStorage.getItem("appphone");
-		var packages 	= localStorage.getItem("apppackages");
+		var fitPackage	= localStorage.getItem("appfitPackage");
 		var notes 		= localStorage.getItem("appnotes");
+		var range 		= localStorage.getItem("apprange");
 		
 		var viewInfo = [
 			date,
@@ -83,8 +98,9 @@ function getItems() {
 			dob,
 			email,
 			phone,
-			packages,
-			notes
+			fitPackage,
+			notes,
+			range
 		];
 		
 		alert(viewInfo);
@@ -97,13 +113,14 @@ function getItems() {
 function storeItems(id) {
 	var date 		= document.getElementById("date").value;
 	var time 		= document.getElementById("time").value;
-	var fistName 	= document.getElementById("firstName").value;
+	var firstName 	= document.getElementById("firstName").value;
 	var lastName 	= document.getElementById("lastName").value;
 	var dob 		= document.getElementById("dob").value;
 	var email 		= document.getElementById("email").value;
 	var phone 		= document.getElementById("phone").value;
-	var packages 	= document.getElementsByName("packages").valuel
+	var fitPackage	= document.getElementById("fitPackage").value;
 	var notes 		= document.getElementById("notes").value;
+	var range 		= document.getElementById("range").value;
 	localStorage.setItem("appdate", date);
 	localStorage.setItem("apptime", time);
 	localStorage.setItem("appfirstName", firstName);
@@ -111,8 +128,9 @@ function storeItems(id) {
 	localStorage.setItem("appdob", dob);
 	localStorage.setItem("appemail", email);
 	localStorage.setItem("appphone", phone);
-	localStorage.setItem("apppackages", packages);
+	localStorage.setItem("appfitPackage", fitPackage);
 	localStorage.setItem("appnotes", notes);
+	localStorage.setItem("apprange", range);
 };
 
 //Clears the local Storage to reveal form
