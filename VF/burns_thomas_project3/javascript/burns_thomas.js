@@ -82,6 +82,29 @@ function validateForm() {
 			document.getElementById("email").style.border = "1px solid #ccc";
 		};	
 		
+//Validate Phone number	
+	var getephone = document.forms[0]["phone"].value;
+	var re = /^\([1-9]\d{2}\)\s?\d{3}\-\d{4}$/;
+		if (!(re.exec(getephone))) {
+		document.getElementById("phone").style.border = "1px solid red";
+		alert("Please enter a valid phone number formated like this: (222) 222-2222 please.");
+		return false;
+		}
+		
+
+		else {
+			document.getElementById("phone").style.border = "1px solid #ccc";
+		};
+		
+		if ( ( document.forms["fitForm22"] ["gender"][0].checked == false )
+    && ( document.forms["fitForm22"] ["gender"][1].checked == false ) )
+    {
+        document.getElementById("gender").style.border = "1px solid red";
+		alert ( "Please choose your Gender: Male or Female" );
+        valid = false;
+    }
+		
+		
 		alert("Form has been Submitted. Thank you.");
 	
 };
@@ -102,6 +125,8 @@ function getItems() {
 		var fitPackage	= localStorage.getItem("appfitPackage");
 		var notes 		= localStorage.getItem("appnotes");
 		var range 		= localStorage.getItem("apprange");
+		var gender 		= localStorage.getItem("appgender");
+		var mailList 	= localStorage.getItem("mailList");
 		
 		var viewInfo = [
 			date,
@@ -111,8 +136,10 @@ function getItems() {
 			dob,
 			email,
 			phone,
+			gender,
 			range,
 			fitPackage,
+			mailList,
 			notes
 			
 		];
@@ -135,6 +162,8 @@ function storeItems(id) {
 	var fitPackage	= document.getElementById("fitPackage").value;
 	var notes 		= document.getElementById("notes").value;
 	var range 		= document.getElementById("range").value;
+	var gender 		= document.getElementById("gender").value;
+	var mailList 	= document.getElementById("mailList").value;
 	localStorage.setItem("appdate", date);
 	localStorage.setItem("apptime", time);
 	localStorage.setItem("appfirstName", firstName);
@@ -145,6 +174,8 @@ function storeItems(id) {
 	localStorage.setItem("appfitPackage", fitPackage);
 	localStorage.setItem("appnotes", notes);
 	localStorage.setItem("apprange", range);
+	localStorage.setItem("appgender", gender);
+	localStorage.setItem("appmailList", mailList);
 };
 
 //Clears the local Storage to reveal form
