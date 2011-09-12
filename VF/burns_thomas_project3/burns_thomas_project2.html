@@ -33,7 +33,7 @@ Thomas Burns
       <li>
         <label for="date">Date</label>
         <input type="date" placeholder="01/01/2012" id="date">
-        </li>
+      </li>
       
       <li>
         <label for="time">Time</label>
@@ -58,8 +58,8 @@ Thomas Burns
               <option value="9:00pm">9:00 pm</option>
           </optgroup>
         </select>  
-        </li>
-      </ul>
+      </li>
+    </ul>
     </fieldset><!--End of fieldset-->
   
   <fieldset><!--Beginning of fieldset-->
@@ -79,31 +79,31 @@ Thomas Burns
       <li>
         <label for="dob">D.O.B</label>
         <input type="date" placeholder="01/01/2012" id="dob"/>
-        </li>
+      </li>
       
       <li>
         <label for="email">Email</label>
         <input type="email" placeholder="example@domain.com" id="email">
-        </li>
+      </li>
       
       <li>
         <label for="phone">Phone</label>
         <input type="tel" placeholder="(222) 222-2222" id="phone">
-        </li>
+      </li>
       
       <li>
         <label for="male">Male</label>
         <input type="radio" value="Male" name="gender"/>
         
-        </li>
+      </li>
       
       <li>
         <label for="female">Female</label>
         <input type="radio" value="FeMale" name="gender"/>
         
-        </li>
+      </li>
       
-      </ul>
+    </ul>
     </fieldset><!--End of fieldset-->
   
   <fieldset><!--Beginning of field set-->
@@ -113,44 +113,42 @@ Thomas Burns
       <li>
         <label for="range">Fitness Level</label>
         <input type="range" min="1" max="10" value="1" onchange="showValue(this.value)" />
-  <span id="range">1</span>
-        
+        <span id="range">1</span>
         </li>
-      
       </ul>
     </fieldset><!--End of fieldset-->
   
  	<fieldset> <!--Beginnng of field set-->
     <legend>Fitness Packages</legend>
-    	<ul>
-        	<li id="cmt"> Please select fitness package</li>
-            <li>
-            <label for="fitPackage">Fitness Packages</label>
-            <select id="fitPackage">
-            	<optgroup label="Cardio">
-                    <option value="spinClass">Spin Class</option>
-                    <option value="kickBoxing">Kick Boxing</option>
-                    <option value="aeroJump">Aero Jump</option>
-                	<option value="step">Step</option>
-            		<option value="bootCampBurn">Bootcamp Burn</option>
-                 </optgroup>
-                 
-                 <optgroup label="Strength">
-                    <option value="allAboutArms">All About Arms</option>
-                    <option value="coreStrength">Core Strength</option>
-                    <option value="lowerBodySculpt">Lower Body Sculpt</option>
-                	<option value="chestAndBack">Chest and Back</option>
-            		<option value="upperBodyMeltdown">Upper Body Meltdown</option>
-                 </optgroup>   
-                 
-                 <optgroup label="Flexibility">
-                    <option value="yoga">Yogo</option>
-                    <option value="pilates">Pilates</option>
-                    <option value="totalStretch">Total Stretch</option>
-                 </optgroup>   
-              </select>
-            </li>
-        </ul>
+      <ul>
+        <li id="cmt"> Please select fitness package</li>
+        <li>
+        <label for="fitPackage">Fitness Packages</label>
+        <select id="fitPackage">
+            <optgroup label="Cardio">
+                <option value="spinClass">Spin Class</option>
+                <option value="kickBoxing">Kick Boxing</option>
+                <option value="aeroJump">Aero Jump</option>
+                <option value="step">Step</option>
+                <option value="bootCampBurn">Bootcamp Burn</option>
+             </optgroup>
+             
+             <optgroup label="Strength">
+                <option value="allAboutArms">All About Arms</option>
+                <option value="coreStrength">Core Strength</option>
+                <option value="lowerBodySculpt">Lower Body Sculpt</option>
+                <option value="chestAndBack">Chest and Back</option>
+                <option value="upperBodyMeltdown">Upper Body Meltdown</option>
+             </optgroup>   
+             
+             <optgroup label="Flexibility">
+                <option value="yoga">Yogo</option>
+                <option value="pilates">Pilates</option>
+                <option value="totalStretch">Total Stretch</option>
+             </optgroup>   
+          </select>
+        </li>
+    </ul>
     
     </fieldset><!--End of fieldset-->	
   
@@ -161,10 +159,9 @@ Thomas Burns
       <li>
         <label for="mail_listing">Mail Listing</label>
         <input type="checkbox" id="mail_listing"/>
-        </li>
-      
-      
-      </ul>
+      </li>
+     
+    </ul>
     
     </fieldset><!--End of fieldset-->
   
@@ -175,10 +172,9 @@ Thomas Burns
       <li>
         <label for="Notes">Notes</label>
         <textarea id="notes" cols="40" rows="8"></textarea>
-        </li>
+      </li>
       
-      
-      </ul>
+    </ul>
     
   </fieldset><!--End of fieldset-->
   <input type="submit" value="Get Fit!!!" onClick="validateForm"/>

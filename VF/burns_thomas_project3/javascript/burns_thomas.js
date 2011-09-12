@@ -12,9 +12,6 @@ function showValue(newValue){
 };
 
 //Validation section
-
-
-
 function validateForm() {
 	//Validate Date
 	var getdate = document.forms[0]["date"].value;
@@ -28,7 +25,7 @@ function validateForm() {
 	}
 		else {
 			document.getElementById("date").style.border = "1px solid #ccc";
-		}
+		};
 	//Validate First Name
 	var getFirstName = document.forms[0]["firstName"].value;
 	if (getFirstName == "") {
@@ -41,7 +38,7 @@ function validateForm() {
 	}
 		else {
 			document.getElementById("firstName").style.border = "1px solid #ccc";
-		}
+		};
 	//Validate Last Name	
 	var getLastName = document.forms[0]["lastName"].value;
 	if (getLastName == "") {
@@ -54,7 +51,7 @@ function validateForm() {
 	}
 		else {
 			document.getElementById("lastName").style.border = "1px solid #ccc";
-		}
+		};
 		
 	//Validate Date of Birth	
 	var getdob = document.forms[0]["dob"].value;
@@ -68,7 +65,7 @@ function validateForm() {
 	}
 		else {
 			document.getElementById("dob").style.border = "1px solid #ccc";
-		}	
+		};	
 		alert("Form has been Submitted. Thank you.");
 	
 };	
