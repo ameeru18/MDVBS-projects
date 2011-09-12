@@ -66,9 +66,25 @@ function validateForm() {
 		else {
 			document.getElementById("dob").style.border = "1px solid #ccc";
 		};	
+		
+
+//Validate Email addresses	
+	var getemail = document.forms[0]["email"].value;
+	var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+		if (!(re.exec(getemail))) {
+		document.getElementById("email").style.border = "1px solid red";
+		alert("Please enter a valid email address please.");
+		return false;
+		}
+		
+
+		else {
+			document.getElementById("email").style.border = "1px solid #ccc";
+		};	
+		
 		alert("Form has been Submitted. Thank you.");
 	
-};	
+};
 
 
 //End of validateForm functions
