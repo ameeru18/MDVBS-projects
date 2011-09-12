@@ -17,7 +17,7 @@ function validateForm() {
 	var getdate = document.forms[0]["date"].value;
 	if (getdate == "") {
 		document.getElementById("date").style.border = "1px solid red";
-		var slap = prompt("Enter the day you want to workout to proceed", "");
+		var slap = prompt("Enter the date you wish to Git Fit", "");
 		if (slap != null && slap != "") {
 			document.forms[0]["date"].value = slap;	
 		}	
@@ -95,9 +95,10 @@ function getItems() {
 			dob,
 			email,
 			phone,
+			range,
 			fitPackage,
-			notes,
-			range
+			notes
+			
 		];
 		
 		alert(viewInfo);
@@ -135,3 +136,26 @@ function clearLocal() {
 	localStorage.clear();
 	return false;
 };
+
+
+
+
+/*visibility funcitons
+
+if (document.getElementById('fitPackage').value == "kickBoxing") {
+document.getElementById('myImage').src = "/img/kickbox.jpg";
+}
+
+if (document.getElementById('fitPackage').value == "kickBoxing") {
+document.getElementById('myImage').src = "/img/kickbox.jpg";
+}
+
+if (document.getElementById('fitPackage').value == "coreStrength") {
+document.getElementById('myImage').src = "/img/corestrength.jpg";
+}
+
+or you can go for the innerHTML like this:
+
+if (document.getElementById('fitPackage').innerHTML = "Spin Class"){document.getElementById('myImage').src = "img/spin.jpg;
+
+*/
