@@ -8,10 +8,10 @@ Thomas Burns
 <head>
 	<meta charset="UTF-8">
 	<title>22 Hour Fitness</title>
-    <meta name="description" content="22 Hour Fitness" />
-    <meta name="keywords" content="Personal Trainer, Fitness" />
-    <meta name="author" content="Thomas Burns"
-    <meta name="robots" content="Fitness, Exercise, Training" />
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <meta name="author" content=""
+    <meta name="robots" content=""/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
     <link rel="stylesheet" href="css/burns_thomas.css" type="text/css" />
@@ -24,6 +24,7 @@ Thomas Burns
   <h1>22 Hour Fitness</h1>
   <h2>Personal Trainer Scheduler</h2> 
 </div><!--end of head div-->
+
 <form name="fitForm22" id="fitForm22" action="JavaScript:storeItems()" method="post" onsubmit = "return validateForm()" />
   
   <fieldset><!--Beginning of field set-->	
@@ -48,14 +49,12 @@ Thomas Burns
               <option value="1:00pm">1:00 pm</option>
               <option value="2:00pm">2:00 pm</option>
               <option value="3:00pm">3:00 pm</option>
-              <option value="4:00pm">4:00 pm</option>
           </optgroup>
           
           <optgroup label="Evening">
               <option value="6:00pm">6:00 pm</option>
               <option value="7:00pm">7:00 pm</option>
               <option value="8:00pm">8:00 pm</option>
-              <option value="9:00pm">9:00 pm</option>
           </optgroup>
         </select>  
       </li>
@@ -93,13 +92,13 @@ Thomas Burns
       
       <li>
         <label for="male">Male</label>
-        <input type="radio" value="1" name="gender"/>
+        <input type="radio" value="male"  id="gender" name="gender"/>
         
       </li>
       
       <li>
         <label for="female">Female</label>
-        <input type="radio" value="2" name="gender"/>
+        <input type="radio" value="female" id="gender" name="gender"/>
         
       </li>
       
@@ -178,7 +177,7 @@ Thomas Burns
   </form>
   
 <div id="clear_sect">
-    <p id="clear"><a href="#" onClick="clearLocal(); location.reload();">clear local storage</a></p>
+    <p id="clear"><a onMouseOver="mouseHover();" onMouseOut="mouseOut()" href="#" onClick="clearLocal();location.reload();">clear local storage</a></p>
     
 </div><!--End of Clear section-->
   

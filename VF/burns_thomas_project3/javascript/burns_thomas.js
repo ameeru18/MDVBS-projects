@@ -2,10 +2,6 @@
 //09/2011
 //Thomas Burns
 
-//This is to shorten the console log entry
-function con (message) {console.log(message)};
-
-
 //This causes the sliderbar to show its value as it is slid back and forth
 function showValue(newValue){
 	document.getElementById("range").innerHTML=newValue;
@@ -13,11 +9,11 @@ function showValue(newValue){
 
 //Validation section
 function validateForm() {
-	//Validate Date
+//Validate Date
 	var getdate = document.forms[0]["date"].value;
 	if (getdate == "") {
 		document.getElementById("date").style.border = "1px solid red";
-		var slap = prompt("Enter the date you wish to Git Fit", "");
+		var slap = prompt("Enter the date you wish to Git Fit", "01/01/2011");
 		if (slap != null && slap != "") {
 			document.forms[0]["date"].value = slap;	
 		}	
@@ -26,7 +22,7 @@ function validateForm() {
 		else {
 			document.getElementById("date").style.border = "1px solid #ccc";
 		};
-	//Validate First Name
+//Validate First Name
 	var getFirstName = document.forms[0]["firstName"].value;
 	if (getFirstName == "") {
 		document.getElementById("firstName").style.border = "1px solid red";
@@ -39,7 +35,7 @@ function validateForm() {
 		else {
 			document.getElementById("firstName").style.border = "1px solid #ccc";
 		};
-	//Validate Last Name	
+//Validate Last Name	
 	var getLastName = document.forms[0]["lastName"].value;
 	if (getLastName == "") {
 		document.getElementById("lastName").style.border = "1px solid red";
@@ -53,7 +49,7 @@ function validateForm() {
 			document.getElementById("lastName").style.border = "1px solid #ccc";
 		};
 		
-	//Validate Date of Birth	
+//Validate Date of Birth	
 	var getdob = document.forms[0]["dob"].value;
 	if (getdob == "") {
 		document.getElementById("dob").style.border = "1px solid red";
@@ -96,14 +92,25 @@ function validateForm() {
 			document.getElementById("phone").style.border = "1px solid #ccc";
 		};
 		
-		if ( ( document.forms[0]["gender"][0].checked == false )
-    && ( document.forms[0]["gender"][1].checked == false ) )
-    {
-        //document.getElementById("gender").style.border = "1px solid red";
-		alert ( "Please choose your Gender: Male or Female" );
-        valid = false;
-    }
-				
+	var chosen = ""
+	var len = document.fitForm22.gender.length
+		for(i=0; i<len; i++) {
+			if (document.fitForm22.gender[i].checked){
+			chosen = document.fitForm22.gender[i].value
+			}
+		}
+			if (chosen=="") {
+				alert("Please select male of female")
+				return false;	
+			} 
+			
+//Store Items after validation	
+	var look = "return validateForm()";
+		if ("look") {storeItems()
+		}
+		else {alert("Please check your data and resubmit")
+		};
+		
 		alert("Form has been Submitted. Thank you.");
 	
 };
@@ -112,6 +119,22 @@ function validateForm() {
 //End of validateForm functions
 
 //This section is for saving my form data to local storage and reporting it to browser via alert message
+
+var clearLink = document.getElementById("clear");
+var anchorTags = clearLink.getElementsByTagName("a");
+
+function mouseHover() {
+	for (var i=0, j=anchorTags.length; i < j; i++ ) {
+		anchorTags[i].style.color = "#009900";	
+	}
+};
+
+function mouseOut() {
+	for (var i=0, j=anchorTags.length; i < j; i++ ) {
+		anchorTags[i].style.color = "#990000";	
+	}
+};
+
 function getItems() {
 	if (localStorage.getItem("appfirstName")) {
 		var date 		= localStorage.getItem("appdate");
@@ -124,8 +147,8 @@ function getItems() {
 		var fitPackage	= localStorage.getItem("appfitPackage");
 		var notes 		= localStorage.getItem("appnotes");
 		var range 		= localStorage.getItem("apprange");
-		//var gender 		= localStorage.getItem("appgender");
-		//var mailList 	= localStorage.getItem("mailList");
+		//var gender 		= localStorage.getItem("appgenCheck");
+		//var mailList 	= localStorage.getItem("appmailCheck");
 		
 		var viewInfo = [
 			date,
@@ -147,7 +170,23 @@ function getItems() {
 		document.getElementById("fitForm22").style.display = "none";
 		var clearLink = document.getElementById("clear");
 		clearLink.style.display = "block";
+	}
+	else {
+		var firstName 	= "John";
+		var lastName 	= "Doe";
+		var email 		= "tbur3@yahoo.com";
+		var phone 		= "(989) 999-9999";
+		
+		document.getElementById("firstName").value 	= firstName;
+		document.getElementById("lastName").value 	= lastName;
+		document.getElementById("email").value 		= email;
+		document.getElementById("phone").value 		= phone;
+		
 	};
+	
+	
+	var genCheck = document.getElementById("gender").checked;
+	var mailCheck = document.getElementById("mailList").checked;
 };
 
 function storeItems(id) {
@@ -161,8 +200,8 @@ function storeItems(id) {
 	var fitPackage	= document.getElementById("fitPackage").value;
 	var notes 		= document.getElementById("notes").value;
 	var range 		= document.getElementById("range").value;
-	var gender 		= document.getElementById("gender").value;
-	var mailList 	= document.getElementById("mailList").value;
+	//var gender 		= document.getElementById("genCheck").value
+	//var mailList 	= document.getElementById("mailCheck").value;
 	localStorage.setItem("appdate", date);
 	localStorage.setItem("apptime", time);
 	localStorage.setItem("appfirstName", firstName);
@@ -173,8 +212,8 @@ function storeItems(id) {
 	localStorage.setItem("appfitPackage", fitPackage);
 	localStorage.setItem("appnotes", notes);
 	localStorage.setItem("apprange", range);
-	localStorage.setItem("appgender", gender);
-	localStorage.setItem("appmailList", mailList);
+	//localStorage.setItem("appgenCheck", gender);
+	//localStorage.setItem("appmailCheck", mailList);
 };
 
 //Clears the local Storage to reveal form
@@ -184,24 +223,50 @@ function clearLocal() {
 };
 
 
+function toggleDiv () {
+	
+	if (document.getElementById('fitPackage').value == "Spin Class") {
+	document.getElementById('cardio.jpg').src = "/images/cardio.jpg";
+	}
+	
+	if (document.getElementById('fitPackage').value == "kickBoxing") {
+	document.getElementById('cardio.jpg').src = "/images/cardio.jpg";
+	}
+	
+	if (document.getElementById('fitPackage').value == "Aero Jump") {
+	document.getElementById('cardio.jpg').src = "/images/cardio.jpg";
+	}	
+	if (document.getElementById('fitPackage').value == "Core Strength") {
+	document.getElementById('strength.jpg').src = "/images/strength.jpg";
+	}
+	
+	if (document.getElementById('fitPackage').value == "Lower Body Sculpt") {
+	document.getElementById('strength.jpg').src = "/images/strength.jpg";
+	}
+	
+	if (document.getElementById('fitPackage').value == "Upper Body Meltdown") {
+	document.getElementById('strength.jpg').src = "/images/strength.jpg";
+	}
+	if (document.getElementById('fitPackage').value == "Yoga") {
+	document.getElementById('flexibility.jpg').src = "/images/flexibility.jpg";
+	}
+	
+	if (document.getElementById('fitPackage').value == "Pilates") {
+	document.getElementById('flexibility.jpg').src = "/images/flexibility.jpg";
+	}
+	
+	if (document.getElementById('fitPackage').value == "Total Stretch") {
+	document.getElementById('flexibility.jpg').src = "/images/flexibility.jpg";
+	}
+	
+};
 
 
-/*visibility funcitons
 
-if (document.getElementById('fitPackage').value == "kickBoxing") {
-document.getElementById('myImage').src = "/img/kickbox.jpg";
-}
 
-if (document.getElementById('fitPackage').value == "kickBoxing") {
-document.getElementById('myImage').src = "/img/kickbox.jpg";
-}
 
-if (document.getElementById('fitPackage').value == "coreStrength") {
-document.getElementById('myImage').src = "/img/corestrength.jpg";
-}
+//alternative code if top fails
 
-or you can go for the innerHTML like this:
+//if (document.getElementById('fitPackage').innerHTML = "Spin Class"){document.getElementById('myImage').src = "img/spin.jpg;
 
-if (document.getElementById('fitPackage').innerHTML = "Spin Class"){document.getElementById('myImage').src = "img/spin.jpg;
 
-*/
