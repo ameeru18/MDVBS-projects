@@ -2,11 +2,6 @@
 //09/2011
 //Thomas Burns
 
-//This causes the sliderbar to show its value as it is slid back and forth
-function showValue(newValue){
-	document.getElementById("range").innerHTML=newValue;
-};
-
 //Validation section
 function validateForm() {
 //Validate Date
@@ -123,6 +118,7 @@ function validateForm() {
 var clearLink = document.getElementById("clear");
 var anchorTags = clearLink.getElementsByTagName("a");
 
+//A couple of styles for the clear storage link
 function mouseHover() {
 	for (var i=0, j=anchorTags.length; i < j; i++ ) {
 		anchorTags[i].style.color = "#009900";	
@@ -150,19 +146,33 @@ function getItems() {
 		//var gender 		= localStorage.getItem("appgenCheck");
 		//var mailList 	= localStorage.getItem("appmailCheck");
 		
+		//This will give LS output a title contetation or however you spell it
+		var index1 = "Appointment Date: " + date,
+		    index2 = "Appointment Time: " + time,
+		    index3 = "First Name: " + firstName,
+		    index4 = "Last Name: " + lastName,
+		    index5 = "Date of Birth: " + dob,
+			index6 = "Email Address: " + email,
+			index7 = "Phone Number: " + phone,
+			index8 = "Fitness Package: " + fitPackage,
+			index9 = "Fitness Level: " + range,
+			index10 = "Note to Trainer: " + notes
+			//index11 = "";
+			//index12 = "";
+		
 		var viewInfo = [
-			date,
-			time,
-			firstName,
-			lastName,
-			dob,
-			email,
-			phone,
-			//gender,
-			range,
-			fitPackage,
-			//mailList,
-			notes
+			index1,
+			index2,
+			index3,
+			index4,
+			index5,
+			index6,
+			index7,
+			index8,
+			index9,
+			index10
+			//index11,
+			//index12
 			
 		];
 		
@@ -171,6 +181,7 @@ function getItems() {
 		var clearLink = document.getElementById("clear");
 		clearLink.style.display = "block";
 	}
+	//This will remain until validation and pull to local storage works after that comment out
 	else {
 		var firstName 	= "John";
 		var lastName 	= "Doe";
@@ -222,6 +233,13 @@ function clearLocal() {
 	return false;
 };
 
+
+//Submission display area. Work in progress i think
+
+var toggleSectDiv = document.getElementById("toggleSection");
+		for (var i=0, j=viewInfo.length; i < j; i++) {
+		    
+		    }
 
 function toggleDiv () {
 	
