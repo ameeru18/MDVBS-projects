@@ -114,10 +114,46 @@ function mouseOut() {
 	}
 };
 
+var myName = appfirstName + " " + applastName;
+
 function getItems() {
 	if (!(localStorage.getItem("appfirstName"))) {return false}
 		var myDate 		= localStorage.getItem("appdate");
 		document.getElementById("line1").innerHTML="Date : " + myDate;
+		
+		var myTime 		= localStorage.getItem("apptime");
+		document.getElementById("line2").innerHTML="Appointment Time : " + myTime;
+		
+		var cliName 	= localStorage.getItem("myName");
+		document.getElementById("line3").innerHTML="Client Name : " + cliName;
+		
+		var myBirth 	= localStorage.getItem("appdob");
+		document.getElementById("line4").innerHTML="client date of birth : " + myBirth;
+		
+		var myEmail 	= localStorage.getItem("appemail");
+		document.getElementById("line5").innerHTML="Email Address : " + myEmail;
+		
+		var myPhone 	= localStorage.getItem("appphone");
+		document.getElementById("line6").innerHTML="Phone Number : " + myPhone;
+		
+		var myPackage 	= localStorage.getItem("appfitPackage");
+		document.getElementById("line7").innerHTML="Package Chosen : " + myPackage;
+		
+		var myLevel 	= localStorage.getItem("appmyrange");
+		document.getElementById("line8").innerHTML="Current Fitness Level : " + myLevel;
+		
+		var theMan	 	= localStorage.getItem("appmGender");
+		document.getElementById("line9").innerHTML="Cilent is a male : " + theMan;
+		
+		var theWoman 	= localStorage.getItem("appfGender");
+		document.getElementById("line10").innerHTML="Cilent is a woman: " + theWoman;
+		
+		var mySpam 		= localStorage.getItem("appmailList");
+		document.getElementById("line11").innerHTML="Client wants additional information : " + mySpam;
+		
+		var myNotes 	= localStorage.getItem("appnotes");
+		document.getElementById("line12").innerHTML="Notes for the Trainer : " + myNotes;
+		
 		//var time 		= localStorage.getItem("apptime");
 		//var firstName 	= localStorage.getItem("appfirstName");
 		//var lastName 	= localStorage.getItem("applastName");
@@ -146,8 +182,9 @@ function storeItems() {
 	var fitPackage	= document.getElementById("fitPackage").value;
 	var notes 		= document.getElementById("notes").value;
 	var myrange 	= document.getElementById("myrange").value;
-	//var gender 		= document.getElementById("genCheck").value
-	//var mailList 	= document.getElementById("mailCheck").value;
+	var mGender 	= document.getElementById("mGender").checked;
+	var fGender 	= document.getElementById("fGender").checked;
+	var mailList 	= document.getElementById("mailList").value;
 	localStorage.setItem("appdate", date);
 	localStorage.setItem("apptime", time);
 	localStorage.setItem("appfirstName", firstName);
@@ -158,8 +195,9 @@ function storeItems() {
 	localStorage.setItem("appfitPackage", fitPackage);
 	localStorage.setItem("appnotes", notes);
 	localStorage.setItem("appmyrange", myrange);
-	//localStorage.setItem("appgenCheck", gender);
-	//localStorage.setItem("appmailCheck", mailList);
+	localStorage.setItem("appmGender", mGender);
+	localStorage.setItem("appfGender", fGender);
+	localStorage.setItem("appmailList", mailList);
 alert("Items Stored")
 getItems();
 };
