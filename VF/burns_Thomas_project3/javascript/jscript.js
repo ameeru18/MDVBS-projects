@@ -114,7 +114,6 @@ function mouseOut() {
 	}
 };
 
-var myName = appfirstName + " " + applastName;
 
 function getItems() {
 	if (!(localStorage.getItem("appfirstName"))) {return false}
@@ -124,8 +123,11 @@ function getItems() {
 		var myTime 		= localStorage.getItem("apptime");
 		document.getElementById("line2").innerHTML="Appointment Time : " + myTime;
 		
-		var cliName 	= localStorage.getItem("myName");
-		document.getElementById("line3").innerHTML="Client Name : " + cliName;
+		var cliName1 	= localStorage.getItem("appfirstName");
+		document.getElementById("line0").innerHTML="Client Name : " + cliName1;
+		
+		var cliName2 	= localStorage.getItem("applastName");
+		document.getElementById("line3").innerHTML="Client Name : " + cliName1  + cliName2;
 		
 		var myBirth 	= localStorage.getItem("appdob");
 		document.getElementById("line4").innerHTML="client date of birth : " + myBirth;
@@ -153,6 +155,12 @@ function getItems() {
 		
 		var myNotes 	= localStorage.getItem("appnotes");
 		document.getElementById("line12").innerHTML="Notes for the Trainer : " + myNotes;
+		
+		
+		if (document.getElementById('appfitPackage').innerHTML = "spinClass") {
+			document.getElementById("line7a").src = "/images/cardio.jpg";
+		}
+		
 		
 		//var time 		= localStorage.getItem("apptime");
 		//var firstName 	= localStorage.getItem("appfirstName");
