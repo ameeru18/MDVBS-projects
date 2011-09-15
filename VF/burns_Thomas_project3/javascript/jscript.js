@@ -24,32 +24,21 @@ function validateForm() {
 		else {
 			document.getElementById("date").style.border = "1px solid #ccc";
 		};
-//Validate First Name
-	var getFirstName = document.forms[0]["firstName"].value;
-	if (getFirstName == "") {
-		document.getElementById("firstName").style.border = "1px solid red";
-		var slap = prompt("Enter your first name to proceed", "First Name");
+		
+//Validate Name
+	var getFullName = document.forms[0]["fullName"].value;
+	if (getFullName == "") {
+		document.getElementById("fullName").style.border = "1px solid red";
+		var slap = prompt("Enter your full name to proceed", "First and Last Name");
 		if (slap != null && slap != "") {
-			document.forms[0]["firstName"].value = slap;	
+			document.forms[0]["fullName"].value = slap;	
 		}	
 		
 	}
 		else {
-			document.getElementById("firstName").style.border = "1px solid #ccc";
+			document.getElementById("fullName").style.border = "1px solid #ccc";
 		};
-//Validate Last Name	
-	var getLastName = document.forms[0]["lastName"].value;
-	
-	if (getLastName == "") {
-		document.getElementById("lastName").style.border = "1px solid red";
-		var slap = prompt("Enter your last name to proceed", "Last Name");
-			if (slap != null && slap != "") {
-				document.forms[0]["lastName"].value = slap;	
-		}	
-	}
-		else {
-			document.getElementById("lastName").style.border = "1px solid #ccc";
-		};
+
 //Validate Date of Birth	
 	var getdob = document.forms[0]["dob"].value;
 	if (getdob == "") {
@@ -73,7 +62,7 @@ function validateForm() {
 			var slap = prompt("Enter your email address to proceed", "user@domain.com");
 			document.forms[0]["email"].value = slap;
 			return validateForm();
-		}
+		};
 		
 //Validate Phone number	
 	var getephone = document.forms[0]["phone"].value;
@@ -116,18 +105,15 @@ function mouseOut() {
 
 
 function getItems() {
-	if (!(localStorage.getItem("appfirstName"))) {return false}
+	if (!(localStorage.getItem("appfullName"))) {return false}
 		var myDate 		= localStorage.getItem("appdate");
 		document.getElementById("line1").innerHTML="Date : " + myDate;
 		
 		var myTime 		= localStorage.getItem("apptime");
 		document.getElementById("line2").innerHTML="Appointment Time : " + myTime;
 		
-		var cliName1 	= localStorage.getItem("appfirstName");
-		document.getElementById("line0").innerHTML="Client Name : " + cliName1;
-		
-		var cliName2 	= localStorage.getItem("applastName");
-		document.getElementById("line3").innerHTML="Client Name : " + cliName1  + cliName2;
+		var clilName 	= localStorage.getItem("appfullName");
+		document.getElementById("line3").innerHTML="Client Name : " + clilName;
 		
 		var myBirth 	= localStorage.getItem("appdob");
 		document.getElementById("line4").innerHTML="client date of birth : " + myBirth;
@@ -157,14 +143,10 @@ function getItems() {
 		document.getElementById("line12").innerHTML="Notes for the Trainer : " + myNotes;
 		
 		
-		if (document.getElementById('appfitPackage').innerHTML = "spinClass") {
-			document.getElementById("line7a").src = "/images/cardio.jpg";
-		}
 		
 		
 		//var time 		= localStorage.getItem("apptime");
-		//var firstName 	= localStorage.getItem("appfirstName");
-		//var lastName 	= localStorage.getItem("applastName");
+		//var fullName 	= localStorage.getItem("appfullName");
 		//var dob	 		= localStorage.getItem("appdob");
 		//var email 		= localStorage.getItem("appemail");
 		//var phone 		= localStorage.getItem("appphone");
@@ -182,8 +164,7 @@ function getItems() {
 function storeItems() {
 	var date 		= document.getElementById("date").value;
 	var time 		= document.getElementById("time").value;
-	var firstName 	= document.getElementById("firstName").value;
-	var lastName 	= document.getElementById("lastName").value;
+	var fullName 	= document.getElementById("fullName").value;
 	var dob 		= document.getElementById("dob").value;
 	var email 		= document.getElementById("email").value;
 	var phone 		= document.getElementById("phone").value;
@@ -195,8 +176,7 @@ function storeItems() {
 	var mailList 	= document.getElementById("mailList").value;
 	localStorage.setItem("appdate", date);
 	localStorage.setItem("apptime", time);
-	localStorage.setItem("appfirstName", firstName);
-	localStorage.setItem("applastName", lastName);
+	localStorage.setItem("appfullName", fullName);
 	localStorage.setItem("appdob", dob);
 	localStorage.setItem("appemail", email);
 	localStorage.setItem("appphone", phone);
