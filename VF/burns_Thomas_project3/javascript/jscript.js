@@ -5,7 +5,7 @@
 
 //This causes the sliderbar to show its value as it is slid back and forth
 function showValue(newValue){
-	document.getElementById("range").innerHTML=newValue;
+	document.getElementById("nums").innerHTML=newValue;
 };
 
 
@@ -142,7 +142,10 @@ function getItems() {
 		var myNotes 	= localStorage.getItem("appnotes");
 		document.getElementById("line12").innerHTML="Notes for the Trainer : " + myNotes;
 		
-		
+		if (document.getElementById('fitPackage').innerHTML = "spinClass"){
+			document.getElementById("cardio.jpg").src = "image/cardio.jpg;"
+			
+			};
 		
 		
 		//var time 		= localStorage.getItem("apptime");

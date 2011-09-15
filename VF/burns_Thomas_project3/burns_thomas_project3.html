@@ -102,7 +102,9 @@ Thomas Burns
                             <li id="cmt">Select your skill level.</li>
                                 <li>
                                     <label for="myrange">Fitness Level</label>
-        							<input type="range" id="myrange" min="1" max="10" value="1"/>
+        							<input type="range" id="myrange" min="1" max="10" value="1"onchange="showValue(this.value)" />
+        							<span id="nums">1</span>
+                                     
                                 </li>
                         </ul>
                 </fieldset><!--End of fieldset-->
@@ -178,7 +180,7 @@ Thomas Burns
     <li id="line10">line 10</li>
     <li id="line11">line 11</li>
     <li id="line12">line 12</li>
-    <!--<li id="pictures"><img id="cardio" src="images/cardio.jpg" width="200" height="200" alt="cardio"><img id="strength" src="images/strength.jpg" width="200" height="200" alt="Strength"><img id="flex" src="images/flexibility.jpg" width="200" height="200" alt="flex"></li>-->
+   <li id="pictures"><img id="cardio" src="images/cardio.jpg" width="200" height="200" alt="cardio"><img id="strength" src="images/strength.jpg" width="200" height="200" alt="Strength"><img id="flex" src="images/flexibility.jpg" width="200" height="200" alt="flex"></li>
 </ul>
 <p id="clear"><a onMouseOver="mouseHover();" onMouseOut="mouseOut()" href="#" onClick="clearLocal();location.reload();">clear local storage</a></p>
 </div>
