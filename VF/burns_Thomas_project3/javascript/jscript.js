@@ -15,7 +15,7 @@ function validateForm() {
 	var getdate = document.forms[0]["date"].value;
 	if (getdate == "") {
 		document.getElementById("date").style.border = "1px solid red";
-		var slap = prompt("Enter the date you wish to Git Fit", "01/01/2011");
+		var slap = prompt("Enter the date you wish to Git Fit", "");
 		if (slap != null && slap != "") {
 			document.forms[0]["date"].value = slap;	
 		}	
@@ -29,7 +29,7 @@ function validateForm() {
 	var getFullName = document.forms[0]["fullName"].value;
 	if (getFullName == "") {
 		document.getElementById("fullName").style.border = "1px solid red";
-		var slap = prompt("Enter your full name to proceed", "First and Last Name");
+		var slap = prompt("Enter your full name to proceed", "");
 		if (slap != null && slap != "") {
 			document.forms[0]["fullName"].value = slap;	
 		}	
@@ -43,7 +43,7 @@ function validateForm() {
 	var getdob = document.forms[0]["dob"].value;
 	if (getdob == "") {
 		document.getElementById("dob").style.border = "1px solid red";
-		var slap = prompt("Enter your date of birth to proceed", "12/12/1900");
+		var slap = prompt("Enter your date of birth to proceed", "");
 		if (slap != null && slap != "") {
 			document.forms[0]["dob"].value = slap;	
 		}	
@@ -59,7 +59,7 @@ function validateForm() {
 	var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 		if (!(re.exec(getemail))) {
 			document.getElementById("email").style.border = "1px solid red";
-			var slap = prompt("Enter your email address to proceed", "user@domain.com");
+			var slap = prompt("Enter your email address to proceed", "");
 			document.forms[0]["email"].value = slap;
 			return validateForm();
 		};
@@ -69,7 +69,7 @@ function validateForm() {
 	var re = /^\([1-9]\d{2}\)\s?\d{3}\-\d{4}$/;
 		if (!(re.exec(getephone))) {
 		document.getElementById("phone").style.border = "1px solid red";
-		var slap = prompt("Enter your phone number to proceed", "(222) 222-2222");
+		var slap = prompt("Enter your phone number to proceed", "");
 		if (slap != null && slap != "") {
 			document.forms[0]["phone"].value = slap;
 		}
@@ -88,9 +88,6 @@ storeItems();
 
 
 //End of validateForm functions
-
-
-
 
 
 function getItems() {
@@ -131,23 +128,29 @@ function getItems() {
 		var myNotes 	= localStorage.getItem("appnotes");
 		document.getElementById("line12").innerHTML="Notes for the Trainer : " + myNotes;
 		
-		var imgCard = new Image();
-			imgCard.src = "img/card.jpg";
+		var imgCardio = new Image();
+			imgCardio.src = "images/cardio.jpg";
 		
 		var imgStrength = new Image();
-			imgStrength.src = "img/strength.jpg";
+			imgStrength.src = "images/strength.jpg";
 		
 		var imgFlexibility = new Image();
-			imgFlexibility.src = "img/flexibility.jpg";
+			imgFlexibility.src = "images/flexibility.jpg";
 			
-		
-		if ("myPackage" == "spinClass") {document.getElementById("disImage").src = imgCard.src };
+
 				
-	
+		if (myPackage == "spinClass" || myPackage =="kickBoxing" || myPackage == "aeroJump") {
+			document.getElementById('disImage').src = imgCardio.src;
+		}
+		if (myPackage == "coreStrength" || myPackage =="lowerBodySculpt" || myPackage == "upperBodyMeltdown") {
+			document.getElementById('disImage').src = imgStrength.src;
+		}
+		if (myPackage == "yoga" || myPackage =="pilates" || myPackage == "totalStretch") {
+					document.getElementById('disImage').src = imgFlexibility.src;
+				}
 		
-	document.getElementById("fitForm22").style.display = "none";
-		var clearLink = document.getElementById("clear");
-		clearLink.style.display = "block";
+	document.getElementById("page1").style.display = "none";
+	document.getElementById("page2").style.display = "block";
 		
 
 
@@ -185,6 +188,8 @@ getItems();
 
 //Clears the local Storage to reveal form
 function clearLocal() {
+	document.getElementById("page1").style.display = "block";
+	document.getElementById("page2").style.display = "none";
 	localStorage.clear();
 	return false;
 };
