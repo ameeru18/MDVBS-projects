@@ -98,3 +98,6 @@ body {
 #page2 {
 	display: none;
 }
+#page2 ul {
+	list-style-type: none;
+}
