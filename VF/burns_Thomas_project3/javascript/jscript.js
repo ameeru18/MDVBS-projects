@@ -90,18 +90,7 @@ storeItems();
 //End of validateForm functions
 
 
-//A couple of styles for the clear storage link
-function mouseHover() {
-	for (var i=0, j=anchorTags.length; i < j; i++ ) {
-		anchorTags[i].style.color = "#009900";	
-	}
-};
 
-function mouseOut() {
-	for (var i=0, j=anchorTags.length; i < j; i++ ) {
-		anchorTags[i].style.color = "#990000";	
-	}
-};
 
 
 function getItems() {
@@ -142,24 +131,25 @@ function getItems() {
 		var myNotes 	= localStorage.getItem("appnotes");
 		document.getElementById("line12").innerHTML="Notes for the Trainer : " + myNotes;
 		
-		if (document.getElementById('fitPackage').innerHTML = "spinClass"){
-			document.getElementById("cardio.jpg").src = "image/cardio.jpg;"
+		var imgCard = new Image();
+			imgCard.src = "img/card.jpg";
+		
+		var imgStrength = new Image();
+			imgStrength.src = "img/strength.jpg";
+		
+		var imgFlexibility = new Image();
+			imgFlexibility.src = "img/flexibility.jpg";
 			
-			};
 		
+		if ("myPackage" == "spinClass") {document.getElementById("disImage").src = imgCard.src };
+				
+	
 		
-		//var time 		= localStorage.getItem("apptime");
-		//var fullName 	= localStorage.getItem("appfullName");
-		//var dob	 		= localStorage.getItem("appdob");
-		//var email 		= localStorage.getItem("appemail");
-		//var phone 		= localStorage.getItem("appphone");
-		//var fitPackage	= localStorage.getItem("appfitPackage");
-		//var notes 		= localStorage.getItem("appnotes");
-		//var myrange 	= localStorage.getItem("appmyrange");
-		//var gender 		= localStorage.getItem("appgenCheck");
-		//var mailList 	= localStorage.getItem("appmailCheck");
+	document.getElementById("fitForm22").style.display = "none";
+		var clearLink = document.getElementById("clear");
+		clearLink.style.display = "block";
 		
-		
+
 
 };//End of Get Items function
 	
