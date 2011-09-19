@@ -15,7 +15,7 @@ function validateForm() {
 	var getdate = document.forms[0]["date"].value;
 	if (getdate == "") {
 		document.getElementById("date").style.border = "1px solid red";
-		var slap = prompt("Enter the date you wish to Git Fit", "");
+		var slap = prompt("Enter the date you wish to Git Fit", "01/01/2111");
 		if (slap != null && slap != "") {
 			document.forms[0]["date"].value = slap;	
 		}	
@@ -29,7 +29,7 @@ function validateForm() {
 	var getFullName = document.forms[0]["fullName"].value;
 	if (getFullName == "") {
 		document.getElementById("fullName").style.border = "1px solid red";
-		var slap = prompt("Enter your full name to proceed", "");
+		var slap = prompt("Enter your full name to proceed", "Simon Says");
 		if (slap != null && slap != "") {
 			document.forms[0]["fullName"].value = slap;	
 		}	
@@ -43,7 +43,7 @@ function validateForm() {
 	var getdob = document.forms[0]["dob"].value;
 	if (getdob == "") {
 		document.getElementById("dob").style.border = "1px solid red";
-		var slap = prompt("Enter your date of birth to proceed", "");
+		var slap = prompt("Enter your date of birth to proceed", "01/01/2111");
 		if (slap != null && slap != "") {
 			document.forms[0]["dob"].value = slap;	
 		}	
@@ -59,20 +59,20 @@ function validateForm() {
 	var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 		if (!(re.exec(getemail))) {
 			document.getElementById("email").style.border = "1px solid red";
-			var slap = prompt("Enter your email address to proceed", "");
+			var slap = prompt("Enter your email address to proceed", "blank@domain.com");
 			document.forms[0]["email"].value = slap;
 			return validateForm();
 		};
 		
 //Validate Phone number	
 	var getephone = document.forms[0]["phone"].value;
-	var re = /^\([1-9]\d{2}\)\s?\d{3}\-\d{4}$/;
+	var re = /^\(?(\d{3})\)?[\.\-\/ ]?(\d{3})[\.\-\/ ]?(\d{4})$/;
 		if (!(re.exec(getephone))) {
-		document.getElementById("phone").style.border = "1px solid red";
-		var slap = prompt("Enter your phone number to proceed", "");
-		if (slap != null && slap != "") {
-			document.forms[0]["phone"].value = slap;
-		}
+			document.getElementById("phone").style.border = "1px solid red";
+			var slap = prompt("Enter your phone number to proceed", "2223456789");
+			if (slap != null && slap != "") {
+				document.forms[0]["phone"].value = slap;
+			}
 		
 		}
 		
@@ -98,8 +98,8 @@ function getItems() {
 		var myTime 		= localStorage.getItem("apptime");
 		document.getElementById("line2").innerHTML="Appointment Time : " + myTime;
 		
-		var clilName 	= localStorage.getItem("appfullName");
-		document.getElementById("line3").innerHTML="Client Name : " + clilName;
+		var cliName 	= localStorage.getItem("appfullName");
+		document.getElementById("line3").innerHTML="Client Name : " + cliName;
 		
 		var myBirth 	= localStorage.getItem("appdob");
 		document.getElementById("line4").innerHTML="client date of birth : " + myBirth;
@@ -128,6 +128,9 @@ function getItems() {
 		var myNotes 	= localStorage.getItem("appnotes");
 		document.getElementById("line12").innerHTML="Notes for the Trainer : " + myNotes;
 		
+	
+	//Image inclusion section
+		
 		var imgCardio = new Image();
 			imgCardio.src = "images/cardio.jpg";
 		
@@ -146,13 +149,52 @@ function getItems() {
 			document.getElementById('disImage').src = imgStrength.src;
 		}
 		if (myPackage == "yoga" || myPackage =="pilates" || myPackage == "totalStretch") {
-					document.getElementById('disImage').src = imgFlexibility.src;
-				}
+			document.getElementById('disImage').src = imgFlexibility.src;
+		}
 		
-	document.getElementById("page1").style.display = "none";
+	//End of Images section
+		
 	document.getElementById("page2").style.display = "block";
 		
+		
+		
+		//Array creation section
+		
+		
+function keyMaker(){
+		var myDate = document.getElementById('apptime').value
+		var myTime = document.getElementById("appdate").value
+		var	cliName = document.getElementById("fullName").value;
+		var	myBirth = document.getElementById("dob").value;
+		var	myEmail = document.getElementById("email").value;
+		var	myPhone = document.getElementById("phone").value;
+		var	myPackage 	= document.getElementById("fitPackage").value;
+		var	myLevel 	= document.getElementById("myrange").value;
+		var	theMan 		= document.getElementById("mGender").checked;
+		var	theWoman 	= document.getElementById("fGender").checked;
+		var	mySpam 		= document.getElementById("mailList").value;
+		var	myNotes 	= document.getElementById("notes").value;
 
+		
+		myArray = [
+			myDate,
+			myTime,
+			cliName,
+			myBirth,
+			myEmail,
+			myPhone,
+			myPackage,
+			myLevel,
+			theMan,
+			theWoman,
+			mySpam,
+			myNotes
+		];
+		uniquieId = dateObject.getFullYear() + " " + dateObject.getMonth() + " "
+		myOutput = myArray.join(";");
+		localStorage.SetItem(key, myOutput);
+}
+		
 
 };//End of Get Items function
 	
@@ -182,13 +224,30 @@ function storeItems() {
 	localStorage.setItem("appmGender", mGender);
 	localStorage.setItem("appfGender", fGender);
 	localStorage.setItem("appmailList", mailList);
+	
 alert("Items Stored")
 getItems();
+keyMaker();
+
 };
+
+//Add additonal entry to the form after first submission
+var counter = 1;
+var limit = 7;
+function addSession(page2){
+     if (counter == limit)  {
+          alert("You have reached the limit of adding " + counter + " inputs");
+     }
+     else {
+          var newdiv = document.createElement('page2');
+          newdiv.innerHTML = "Entry " + (counter + 1) + " <br><input type='text' name='myInputs[]'>";
+          document.getElementById(getItems).appendChild(newdiv);
+          counter++;
+     }
+};//End of addSession function section
 
 //Clears the local Storage to reveal form
 function clearLocal() {
-	document.getElementById("page1").style.display = "block";
 	document.getElementById("page2").style.display = "none";
 	localStorage.clear();
 	return false;
