@@ -90,42 +90,93 @@ storeItems();
 //End of validateForm functions
 
 
+
+
+//Beginning of storeItems function
+function storeItems() {
+	var newDate = new Date();
+	var uniqueId = newDate.getTime()
+	var date 		= document.getElementById("date").value;
+	var time 		= document.getElementById("time").value;
+	var fullName 	= document.getElementById("fullName").value;
+	var dob 		= document.getElementById("dob").value;
+	var email 		= document.getElementById("email").value;
+	var phone 		= document.getElementById("phone").value;
+	var mGender 	= document.getElementById("mGender").checked;
+	var fGender 	= document.getElementById("fGender").checked;
+	var myrange 	= document.getElementById("myrange").value;
+	var fitPackage	= document.getElementById("fitPackage").value;
+	var mailList 	= document.getElementById("mailList").value;
+	var notes 		= document.getElementById("notes").value;
+	var allFields = [
+		date,
+		time,
+		fullName,
+		dob,
+		email,
+		phone,
+		mGender,
+		fGender,
+		myrange,
+		fitPackage,
+		mailList,
+		notes
+	];
+	/*if (date != "" && time != "" && fullName != "" && dob != "" && email != "" && phone != "" && mGender != "" && fGender != "" && fitPackage != "") {*/
+	localStorage.setItem(uniqueId, allFields.join(";"));
+/*} else {
+	alert("Please correctly complete the form");
+
+}*/ 
+
+	
+alert("Items Stored")
+getItems();
+	
+	uniquieId = dateObject.getFullYear() + " " + dateObject.getMonth() + " "
+		myOutput = myArray.join(";");
+		localStorage.SetItem(key, myOutput);
+	
+};
+
+
+
 function getItems() {
-	if (!(localStorage.getItem("appfullName"))) {return false}
-		var myDate 		= localStorage.getItem("appdate");
+	if (!(localStorage.getItem("fullName"))) {return false}
+		var myDate 		= localStorage.getItem("date");
 		document.getElementById("line1").innerHTML="Date : " + myDate;
 		
-		var myTime 		= localStorage.getItem("apptime");
+		var myTime 		= localStorage.getItem("time");
 		document.getElementById("line2").innerHTML="Appointment Time : " + myTime;
 		
-		var cliName 	= localStorage.getItem("appfullName");
+		var cliName 	= localStorage.getItem("fullName");
 		document.getElementById("line3").innerHTML="Client Name : " + cliName;
 		
-		var myBirth 	= localStorage.getItem("appdob");
+		var myBirth 	= localStorage.getItem("dob");
 		document.getElementById("line4").innerHTML="client date of birth : " + myBirth;
 		
-		var myEmail 	= localStorage.getItem("appemail");
+		var myEmail 	= localStorage.getItem("email");
 		document.getElementById("line5").innerHTML="Email Address : " + myEmail;
 		
-		var myPhone 	= localStorage.getItem("appphone");
+		var myPhone 	= localStorage.getItem("phone");
 		document.getElementById("line6").innerHTML="Phone Number : " + myPhone;
 		
-		var myPackage 	= localStorage.getItem("appfitPackage");
-		document.getElementById("line7").innerHTML="Package Chosen : " + myPackage;
-		
-		var myLevel 	= localStorage.getItem("appmyrange");
-		document.getElementById("line8").innerHTML="Current Fitness Level : " + myLevel;
-		
-		var theMan	 	= localStorage.getItem("appmGender");
+		var theMan	 	= localStorage.getItem("mGender");
 		document.getElementById("line9").innerHTML="Cilent is a male : " + theMan;
 		
-		var theWoman 	= localStorage.getItem("appfGender");
+		var theWoman 	= localStorage.getItem("fGender");
 		document.getElementById("line10").innerHTML="Cilent is a woman: " + theWoman;
 		
-		var mySpam 		= localStorage.getItem("appmailList");
+		var myLevel 	= localStorage.getItem("myrange");
+		document.getElementById("line8").innerHTML="Current Fitness Level : " + myLevel;
+		
+		var myPackage 	= localStorage.getItem("fitPackage");
+		document.getElementById("line7").innerHTML="Package Chosen : " + myPackage;
+		
+		var mySpam 		= localStorage.getItem("mailList");
 		document.getElementById("line11").innerHTML="Client wants additional information : " + mySpam;
 		
-		var myNotes 	= localStorage.getItem("appnotes");
+		var myNotes 	= localStorage.getItem("notes");
 		document.getElementById("line12").innerHTML="Notes for the Trainer : " + myNotes;
 		
 	
@@ -157,10 +208,11 @@ function getItems() {
 	document.getElementById("page2").style.display = "block";
 		
 		
-		
-		//Array creation section
-		
-		
+
+};//End of Get Items function
+	
+
+/*//Array creation section
 function keyMaker(){
 		var myDate = document.getElementById('apptime').value
 		var myTime = document.getElementById("appdate").value
@@ -193,43 +245,11 @@ function keyMaker(){
 		uniquieId = dateObject.getFullYear() + " " + dateObject.getMonth() + " "
 		myOutput = myArray.join(";");
 		localStorage.SetItem(key, myOutput);
-}
 		
+};//End of keyMaker function*/
 
-};//End of Get Items function
+
 	
-
-function storeItems() {
-	var date 		= document.getElementById("date").value;
-	var time 		= document.getElementById("time").value;
-	var fullName 	= document.getElementById("fullName").value;
-	var dob 		= document.getElementById("dob").value;
-	var email 		= document.getElementById("email").value;
-	var phone 		= document.getElementById("phone").value;
-	var fitPackage	= document.getElementById("fitPackage").value;
-	var notes 		= document.getElementById("notes").value;
-	var myrange 	= document.getElementById("myrange").value;
-	var mGender 	= document.getElementById("mGender").checked;
-	var fGender 	= document.getElementById("fGender").checked;
-	var mailList 	= document.getElementById("mailList").value;
-	localStorage.setItem("appdate", date);
-	localStorage.setItem("apptime", time);
-	localStorage.setItem("appfullName", fullName);
-	localStorage.setItem("appdob", dob);
-	localStorage.setItem("appemail", email);
-	localStorage.setItem("appphone", phone);
-	localStorage.setItem("appfitPackage", fitPackage);
-	localStorage.setItem("appnotes", notes);
-	localStorage.setItem("appmyrange", myrange);
-	localStorage.setItem("appmGender", mGender);
-	localStorage.setItem("appfGender", fGender);
-	localStorage.setItem("appmailList", mailList);
-	
-alert("Items Stored")
-getItems();
-keyMaker();
-
-};
 
 //Add additonal entry to the form after first submission
 var counter = 1;
