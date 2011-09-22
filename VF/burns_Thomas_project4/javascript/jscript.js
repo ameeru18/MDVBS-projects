@@ -7,10 +7,16 @@
 function showValue(newValue){
 	document.getElementById("nums").innerHTML=newValue;
 };
-
+ 
 
 //Validation section
 function validateForm() {
+//Browser Compatability
+if (typeof(localStorage) == 'undefined' ) {
+            alert('Your browser does not support HTML5 localStorage. Try upgrading.');
+        } else {
+            getItems(); //load the items
+
 //Validate Date
 	var getdate = document.forms[0]["date"].value;
 	if (getdate == "") {
@@ -95,7 +101,7 @@ storeItems();
 //Beginning of storeItems function
 function storeItems() {
 	var newDate = new Date();
-	var uniqueId = newDate.getTime()
+	var itemId = newDate.getTime() //creates a unique id with the milliseconds since January 1, 1970
 	var date 		= document.getElementById("date").value;
 	var time 		= document.getElementById("time").value;
 	var fullName 	= document.getElementById("fullName").value;
@@ -108,7 +114,7 @@ function storeItems() {
 	var fitPackage	= document.getElementById("fitPackage").value;
 	var mailList 	= document.getElementById("mailList").value;
 	var notes 		= document.getElementById("notes").value;
-	var allFields = [
+	/* var allFields = [
 		date,
 		time,
 		fullName,
@@ -121,89 +127,102 @@ function storeItems() {
 		fitPackage,
 		mailList,
 		notes
-	];
+	]; */
+	
+	values.push(date); //push each value into our values array
+	values.push(time);
+	values.push(fullName);
+	values.push(dob);
+	values.push(email);
+	values.push(phone);
+	values.push(mGender);
+	values.push(fGender);
+	values.push(myrange);
+	values.push(fitPackage);
+	values.push(mailList);
+	values.push(notes);
+ 
+try {
+	localStorage.setItem(itemId, values.join(";")); //store the item in the database
+} catch (e) {
+	if (e == QUOTA_EXCEEDED_ERR) {
+		alert("Quota exceeded!");
+	}
+}
+	
 	/*if (date != "" && time != "" && fullName != "" && dob != "" && email != "" && phone != "" && mGender != "" && fGender != "" && fitPackage != "") {*/
-	localStorage.setItem(uniqueId, allFields.join(";"));
+	localStorage.setItem(itemId, allFields.join(";"));
 /*} else {
 	alert("Please correctly complete the form");
 
 }*/ 
 
 	
-alert("Items Stored")
-getItems();
-	
-	uniquieId = dateObject.getFullYear() + " " + dateObject.getMonth() + " "
-		myOutput = myArray.join(";");
-		localStorage.SetItem(key, myOutput);
-	
+alert("Items Stored")	
+pullLocal()	
 };
+
+//Pull values back from localStorage
+
+var itemKey = localStorage.key(0);
+var values = localStorage.getItem(itemKey); 
+values = values.split(";");
+var date 		 = values[0];
+var time 		 = values[1];
+var fullName	 = values[2];
+var dob 		 = values[3];
+var email 		 = values[4];
+var phone 		 = values[5];
+var mGender 	 = values[6];
+var fGender 	 = values[7];
+var myrange 	 = values[8];
+var fitPackage 	 = values[9];
+var mailList 	 = values[10];
+var notes 		 = values[11];
+
+document.write('Date : ' + date + '<br />');
+document.write('Appointment Time : ' + time + '<br />');
+document.write('Client Full name : ' + fullName + '<br />');
+document.write('Client Date of Birth : ' + dob + '<br />');
+document.write('Client Email address : ' + email + '<br />');
+document.write('Client Phone Number : ' + phone + '<br />');
+document.write('Client is a male : ' + mGender + '<br />');
+document.write('Client is a female : ' + fGender + '<br />');
+document.write('Client Fitness Level : ' + myrange + '<br />');
+document.write('Add Client to mailing list : ' + mailList + '<br />');
+document.write('Clients notes to trainer : ' + notes + '<br />');
+
+
+
+/* function pullLocal (){
+	var value = localStorage.getItem();
+	
+	value = value.split(";");
+	var date 		= value[0];
+	var time 		= value[1];
+	var fullName 	= value[2];
+	var	dob 		= value[3];
+	var	email 		= value[4];
+	var	phone 		= value[5];
+	var	mGender 	= value[6];
+	var	fGender 	= value[7];
+	var	myrange 	= value[8];
+	var	fitPackage 	= value[9];
+	var	mailList 	= value[10];
+	var	notes 		= value[11]; */
+	
+getItems()	
+	
+};//End of local storage pull
+
 
 
 
 function getItems() {
-	if (!(localStorage.getItem("fullName"))) {return false}
-		var myDate 		= localStorage.getItem("date");
-		document.getElementById("line1").innerHTML="Date : " + myDate;
-		
-		var myTime 		= localStorage.getItem("time");
-		document.getElementById("line2").innerHTML="Appointment Time : " + myTime;
-		
-		var cliName 	= localStorage.getItem("fullName");
-		document.getElementById("line3").innerHTML="Client Name : " + cliName;
-		
-		var myBirth 	= localStorage.getItem("dob");
-		document.getElementById("line4").innerHTML="client date of birth : " + myBirth;
-		
-		var myEmail 	= localStorage.getItem("email");
-		document.getElementById("line5").innerHTML="Email Address : " + myEmail;
-		
-		var myPhone 	= localStorage.getItem("phone");
-		document.getElementById("line6").innerHTML="Phone Number : " + myPhone;
-		
-		var theMan	 	= localStorage.getItem("mGender");
-		document.getElementById("line9").innerHTML="Cilent is a male : " + theMan;
-		
-		var theWoman 	= localStorage.getItem("fGender");
-		document.getElementById("line10").innerHTML="Cilent is a woman: " + theWoman;
-		
-		var myLevel 	= localStorage.getItem("myrange");
-		document.getElementById("line8").innerHTML="Current Fitness Level : " + myLevel;
-		
-		var myPackage 	= localStorage.getItem("fitPackage");
-		document.getElementById("line7").innerHTML="Package Chosen : " + myPackage;
-		
-		var mySpam 		= localStorage.getItem("mailList");
-		document.getElementById("line11").innerHTML="Client wants additional information : " + mySpam;
-		
-		var myNotes 	= localStorage.getItem("notes");
-		document.getElementById("line12").innerHTML="Notes for the Trainer : " + myNotes;
+	
 		
 	
-	//Image inclusion section
-		
-		var imgCardio = new Image();
-			imgCardio.src = "images/cardio.jpg";
-		
-		var imgStrength = new Image();
-			imgStrength.src = "images/strength.jpg";
-		
-		var imgFlexibility = new Image();
-			imgFlexibility.src = "images/flexibility.jpg";
-			
-
-				
-		if (myPackage == "spinClass" || myPackage =="kickBoxing" || myPackage == "aeroJump") {
-			document.getElementById('disImage').src = imgCardio.src;
-		}
-		if (myPackage == "coreStrength" || myPackage =="lowerBodySculpt" || myPackage == "upperBodyMeltdown") {
-			document.getElementById('disImage').src = imgStrength.src;
-		}
-		if (myPackage == "yoga" || myPackage =="pilates" || myPackage == "totalStretch") {
-			document.getElementById('disImage').src = imgFlexibility.src;
-		}
-		
-	//End of Images section
+	
 		
 	document.getElementById("page2").style.display = "block";
 		
@@ -211,44 +230,6 @@ function getItems() {
 
 };//End of Get Items function
 	
-
-/*//Array creation section
-function keyMaker(){
-		var myDate = document.getElementById('apptime').value
-		var myTime = document.getElementById("appdate").value
-		var	cliName = document.getElementById("fullName").value;
-		var	myBirth = document.getElementById("dob").value;
-		var	myEmail = document.getElementById("email").value;
-		var	myPhone = document.getElementById("phone").value;
-		var	myPackage 	= document.getElementById("fitPackage").value;
-		var	myLevel 	= document.getElementById("myrange").value;
-		var	theMan 		= document.getElementById("mGender").checked;
-		var	theWoman 	= document.getElementById("fGender").checked;
-		var	mySpam 		= document.getElementById("mailList").value;
-		var	myNotes 	= document.getElementById("notes").value;
-
-		
-		myArray = [
-			myDate,
-			myTime,
-			cliName,
-			myBirth,
-			myEmail,
-			myPhone,
-			myPackage,
-			myLevel,
-			theMan,
-			theWoman,
-			mySpam,
-			myNotes
-		];
-		uniquieId = dateObject.getFullYear() + " " + dateObject.getMonth() + " "
-		myOutput = myArray.join(";");
-		localStorage.SetItem(key, myOutput);
-		
-};//End of keyMaker function*/
-
-
 	
 
 //Add additonal entry to the form after first submission
