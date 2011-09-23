@@ -17,50 +17,26 @@ function divMaker (theParentId, aKey){
 	topDoc.appendChild(createDiv);
 };
 
-// Creates a paragraph inside of an html tag with the id of theKey.
-function CreateP(theKey, newText){
-    var myDiv   = document.getElementById(theKey);
-    var newP    = document.createElement("p");
+// Paragraph Creator.
+function pMaker(aKey, newText){
+    var nDiv   = document.getElementById(aKey);
+    var pDrop    = document.createElement("p");
     var myText  = document.createTextNode(newText);
-    newP.appendChild(myText);
+    pDrop.appendChild(myText);
     // Set the new paragraph inside of the div here.
-    myDiv.appendChild(newP);
+    nDiv.appendChild(pDrop);
 }
 
 // Creates an image inside of my div tag.
 function CreateImg(theKey, url, altText){
     var myImage = document.createElement("img");
-    var myDiv   = document.getElementById(theKey);
+    var nDiv   = document.getElementById(theKey);
     myImage.setAttribute("id","ratingImage");
     myImage.setAttribute("src",url);
     myImage.setAttribute("alt", altText);
     // Set the new image inside of the div here.
-    myDiv.appendChild(myImage);
+    nDiv.appendChild(myImage);
 }
-
-function CreateLinks(theKey){
-    var myA     = document.createElement("a");
-    var myB     = document.createElement("a");
-    var myDiv   = document.getElementById(theKey);
-    // First href A
-        myA.setAttribute("href","JavaScript:DeleteInternal(" + theKey + ")");
-        myA.setAttribute("id", "myA");
-        var myTexta  = document.createTextNode("Delete Item");
-        myA.appendChild(myTexta);
-    
-    // Second href B
-        myB.setAttribute("href","JavaScript:EditInternal(" + theKey + ")");
-        myB.setAttribute("id", "myB");
-        var myTextb  = document.createTextNode("Edit Item");
-        myB.appendChild(myTextb);
-    
-    myDiv.appendChild(myA);
-    myDiv.appendChild(myB);
-    
-} // END CreateLinks function.
-
-
-
 
 //--------------------------------------------------------------------------------------------------------------------------------------
 
@@ -165,8 +141,6 @@ function storeItems() {
 	var dob 		= document.getElementById("dob").value;
 	var email 		= document.getElementById("email").value;
 	var phone 		= document.getElementById("phone").value;
-	var mGender 	= document.getElementById("mGender").checked;
-	var fGender 	= document.getElementById("fGender").checked;
 	var myrange 	= document.getElementById("myrange").value;
 	var fitPackage	= document.getElementById("fitPackage").value;
 	var mailList 	= document.getElementById("mailList").value;
@@ -178,8 +152,6 @@ function storeItems() {
 		dob,
 		email,
 		phone,
-		mGender,
-		fGender,
 		myrange,
 		fitPackage,
 		mailList,
@@ -204,8 +176,6 @@ function pullLocal () {
 	var	dob;
 	var	email;
 	var	phone;
-	var	mGender;
-	var	fGender;
 	var	myrange;
 	var	fitPackage;
 	var	mailList;
@@ -235,12 +205,10 @@ function pullLocal () {
 	var dob 		 = values[3];
 	var email 		 = values[4];
 	var phone 		 = values[5];
-	var mGender 	 = values[6];
-	var fGender 	 = values[7];
-	var myrange 	 = values[8];
-	var fitPackage 	 = values[9];
-	var mailList 	 = values[10];
-	var notes 		 = values[11];
+	var myrange 	 = values[6];
+	var fitPackage 	 = values[7];
+	var mailList 	 = values[8];
+	var notes 		 = values[9];
 	
 document.write('Date : ' + date + '<br />');
 document.write('Appointment Time : ' + time + '<br />');
@@ -252,63 +220,7 @@ getItems()
 
 //--------------------------------------------------------------------------------------------------------------------------------------
 
-function getItems() {
-	if (!(localStorage.getItem("fullName"))) {return false}
-		var myDate 		= localStorage.getItem("date");
-		document.getElementById("line1").innerHTML="Date : " + myDate;
-		
-		var myTime 		= localStorage.getItem("time");
-		document.getElementById("line2").innerHTML="Appointment Time : " + myTime;
-		
-		var cliName 	= localStorage.getItem("fullName");
-		document.getElementById("line3").innerHTML="Client Name : " + cliName;
-		
-		var myBirth 	= localStorage.getItem("dob");
-		document.getElementById("line4").innerHTML="client date of birth : " + myBirth;
-		
-		var myEmail 	= localStorage.getItem("email");
-		document.getElementById("line5").innerHTML="Email Address : " + myEmail;
-		
-		var myPhone 	= localStorage.getItem("phone");
-		document.getElementById("line6").innerHTML="Phone Number : " + myPhone;
-		
-		var theMan	 	= localStorage.getItem("mGender");
-		document.getElementById("line7").innerHTML="Cilent is a male : " + theMan;
-		
-		var theWoman 	= localStorage.getItem("fGender");
-		document.getElementById("line8").innerHTML="Cilent is a woman: " + theWoman;
-		
-		var myLevel 	= localStorage.getItem("myrange");
-		document.getElementById("line9").innerHTML="Current Fitness Level : " + myLevel;
-		
-		var myPackage 	= localStorage.getItem("fitPackage");
-		document.getElementById("line10").innerHTML="Package Chosen : " + myPackage;
-		
-		var mySpam 		= localStorage.getItem("mailList");
-		document.getElementById("line11").innerHTML="Client wants additional information : " + mySpam;
-		
-		var myNotes 	= localStorage.getItem("notes");
-		document.getElementById("line12").innerHTML="Notes for the Trainer : " + myNotes;
-		
-	
-	
-			 
-		
-		
-			
-
-				
-		if (myPackage == "spinClass" || myPackage =="kickBoxing" || myPackage == "aeroJump") {
-			document.getElementById('disImage').src = imgCardio.src;
-		}
-		if (myPackage == "coreStrength" || myPackage =="lowerBodySculpt" || myPackage == "upperBodyMeltdown") {
-			document.getElementById('disImage').src = imgStrength.src;
-		}
-		if (myPackage == "yoga" || myPackage =="pilates" || myPackage == "totalStretch") {
-			document.getElementById('disImage').src = imgFlexibility.src;
-		}
-		
-	//End of Images section
+function getItems(){
 		
 	document.getElementById("page2").style.display = "block";
 		
