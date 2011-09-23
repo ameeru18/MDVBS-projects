@@ -3,6 +3,66 @@
 //Thomas Burns
 
 //--------------------------------------------------------------------------------------------------------------------------------------
+//Preloads and default var's and functions
+
+//Image variables
+		var cardioPic = new Image(); cardioPic.src 		= "images/cardio.jpg";
+		var strengthPic = new Image(); strengthPic.src 	= "images/strength.jpg";
+		var flexPic = new Image(); flexPic.src 			= "images/flexibility.jpg";
+//Div Creator
+function divMaker (theParentId, aKey){
+	var topDoc = document.getElementById(theParentId);
+	var createDiv = document.createElement("div");
+	createDiv.setAttribute("id", aKey);
+	topDoc.appendChild(createDiv);
+};
+
+// Creates a paragraph inside of an html tag with the id of theKey.
+function CreateP(theKey, newText){
+    var myDiv   = document.getElementById(theKey);
+    var newP    = document.createElement("p");
+    var myText  = document.createTextNode(newText);
+    newP.appendChild(myText);
+    // Set the new paragraph inside of the div here.
+    myDiv.appendChild(newP);
+}
+
+// Creates an image inside of my div tag.
+function CreateImg(theKey, url, altText){
+    var myImage = document.createElement("img");
+    var myDiv   = document.getElementById(theKey);
+    myImage.setAttribute("id","ratingImage");
+    myImage.setAttribute("src",url);
+    myImage.setAttribute("alt", altText);
+    // Set the new image inside of the div here.
+    myDiv.appendChild(myImage);
+}
+
+function CreateLinks(theKey){
+    var myA     = document.createElement("a");
+    var myB     = document.createElement("a");
+    var myDiv   = document.getElementById(theKey);
+    // First href A
+        myA.setAttribute("href","JavaScript:DeleteInternal(" + theKey + ")");
+        myA.setAttribute("id", "myA");
+        var myTexta  = document.createTextNode("Delete Item");
+        myA.appendChild(myTexta);
+    
+    // Second href B
+        myB.setAttribute("href","JavaScript:EditInternal(" + theKey + ")");
+        myB.setAttribute("id", "myB");
+        var myTextb  = document.createTextNode("Edit Item");
+        myB.appendChild(myTextb);
+    
+    myDiv.appendChild(myA);
+    myDiv.appendChild(myB);
+    
+} // END CreateLinks function.
+
+
+
+
+//--------------------------------------------------------------------------------------------------------------------------------------
 
 //This causes the sliderbar to show its value as it is slid back and forth
 function showValue(newValue){
@@ -182,6 +242,10 @@ function pullLocal () {
 	var mailList 	 = values[10];
 	var notes 		 = values[11];
 	
+document.write('Date : ' + date + '<br />');
+document.write('Appointment Time : ' + time + '<br />');
+document.write('Client Full name : ' + fullName + '<br />');	
+	
 getItems()	
 	
 };//End of local storage pull
@@ -227,16 +291,10 @@ function getItems() {
 		document.getElementById("line12").innerHTML="Notes for the Trainer : " + myNotes;
 		
 	
-	//Image inclusion section
+	
+			 
 		
-		var imgCardio = new Image();
-			imgCardio.src = "images/cardio.jpg";
 		
-		var imgStrength = new Image();
-			imgStrength.src = "images/strength.jpg";
-		
-		var imgFlexibility = new Image();
-			imgFlexibility.src = "images/flexibility.jpg";
 			
 
 				
@@ -285,4 +343,12 @@ function clearLocal() {
 	return false;
 };
 
-
+//--------------------------------------------------------------------------------------------------------------------------------------
+//Some future jQuery features
+$(function() {
+	$('#date').datepicker({
+		showButtonPanel: true,
+		showAnim: 'fold',
+		dateFormat: 'm/dd/yy'
+	});
+});

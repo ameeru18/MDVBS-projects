@@ -42,19 +42,16 @@ Thomas Burns
                                 <optgroup label="Morning">
                                 <option value="8:00am">8:00 am</option>
                                 <option value="9:00am">9:00 am</option>
-                                <option value="10:00am">10:00 am</option>
                                 </optgroup>
                                 
                                 <optgroup label="Afternoon">
                                 <option value="1:00pm">1:00 pm</option>
                                 <option value="2:00pm">2:00 pm</option>
-                                <option value="3:00pm">3:00 pm</option>
                                 </optgroup>
                                 
                                 <optgroup label="Evening">
                                 <option value="6:00pm">6:00 pm</option>
                                 <option value="7:00pm">7:00 pm</option>
-                                <option value="8:00pm">8:00 pm</option>
                                 </optgroup>
                                 </select>  
                             </li>
@@ -84,15 +81,7 @@ Thomas Burns
                                     <label for="phone">Phone</label>
                                     <input type="tel" placeholder="(222) 222-2222" id="phone">
                                 </li>
-                                
-                                <li>
-                                    <label for="mGender">Male</label>
-                                    <input type="radio" value="true"  id="mGender" name="gender" checked = true/>
-                                    <label for="fGender">Female</label>
-                                    <input type="radio" value="false" id="fGender" name="gender"/>
-
-                                </li>
-                            
+                                                            
                         </ul>
                 </fieldset><!--End of fieldset-->
                 
@@ -119,11 +108,9 @@ Thomas Burns
                                     <optgroup label="Cardio">
                                     <option value="spinClass">Spin Class</option>
                                     <option value="kickBoxing">Kick Boxing</option>
-                                    <option value="aeroJump">Aero Jump</option>
                                     </optgroup>
                                     
                                     <optgroup label="Strength">
-                                    <option value="coreStrength">Core Strength</option>
                                     <option value="lowerBodySculpt">Lower Body Sculpt</option>
                                     <option value="upperBodyMeltdown">Upper Body Meltdown</option>
                                     </optgroup>   
@@ -131,7 +118,6 @@ Thomas Burns
                                     <optgroup label="Flexibility">
                                     <option value="yoga">Yoga</option>
                                     <option value="pilates">Pilates</option>
-                                    <option value="totalStretch">Total Stretch</option>
                                     </optgroup>   
                                     </select>
                                 </li>
@@ -186,9 +172,12 @@ Thomas Burns
 </ul>
 <a  href="JavaScript:editPlan();">edit plan</a>
 <a  href="JavaScript:deletePlan();">delete plan</a>
-<a  href="JavaScript:clearLocal();">clear local storage</a>
-</div>
 
+</div>
+<div id="topDoc">
+</div>
+<a  href="JavaScript:clearLocal();">clear local storage</a>
 <script type="text/javascript" src="javascript/jscript.js"></script>
+<script type="text/javascript" src="javascript/jquery-ui-1.8.custom.min.js"></script>
 </body>
 </html>
