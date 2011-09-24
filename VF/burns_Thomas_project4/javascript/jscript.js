@@ -6,9 +6,9 @@
 //Preloads and default var's and functions
 
 //Image variables
-		var cardioPic = new Image(); cardioPic.src 		= "images/cardio.jpg";
-		var strengthPic = new Image(); strengthPic.src 	= "images/strength.jpg";
-		var flexPic = new Image(); flexPic.src 			= "images/flexibility.jpg";
+	var cardioPic = new Image(); cardioPic.src 		= "img/cardio.jpg";
+	var strengthPic = new Image(); strengthPic.src 	= "img/strength.jpg";
+	var flexPic = new Image(); flexPic.src 			= "img/flexibility.jpg";
 //Div Creator
 function divMaker (theParentId, aKey){
 	var topDoc = document.getElementById(theParentId);
@@ -25,18 +25,35 @@ function pMaker(aKey, newText){
     pDrop.appendChild(myText);
     // Set the new paragraph inside of the div here.
     nDiv.appendChild(pDrop);
-}
-
+};
 // Creates an image inside of my div tag.
 function CreateImg(theKey, url, altText){
     var myImage = document.createElement("img");
     var nDiv   = document.getElementById(theKey);
-    myImage.setAttribute("id","ratingImage");
+    myImage.setAttribute("id","fitnessImage");
     myImage.setAttribute("src",url);
     myImage.setAttribute("alt", altText);
     // Set the new image inside of the div here.
     nDiv.appendChild(myImage);
-}
+};
+function linkCreator(theKey){
+    var link1     = document.createElement("a");
+    var link2     = document.createElement("a");
+    var myDiv   = document.getElementById(theKey);
+        link1.setAttribute("href","JavaScript:DeletItem(" + theKey + ")");
+        link1.setAttribute("id", "link1");
+        var myText1 = document.createTextNode("Delete Item");
+        link1.appendChild(myText1);
+    
+        link2.setAttribute("href","JavaScript:EditItem(" + theKey + ")");
+        link2.setAttribute("id", "link2");
+        var myText2  = document.createTextNode("Edit Item");
+        link2.appendChild(myText2);
+    
+    myDiv.appendChild(link1);
+    myDiv.appendChild(link2);
+    
+}; // END CreateLinks function.
 
 //--------------------------------------------------------------------------------------------------------------------------------------
 
@@ -118,7 +135,6 @@ function validateForm() {
 		else {
 			document.getElementById("phone").style.border = "1px solid #ccc";
 		};
-		
 
 storeItems();	
 
@@ -133,8 +149,6 @@ storeItems();
 
 //Beginning of storeItems function
 function storeItems() {
-	var newDate = new Date();
-	var itemId = newDate.getTime()
 	var date 		= document.getElementById("date").value;
 	var time 		= document.getElementById("time").value;
 	var fullName 	= document.getElementById("fullName").value;
@@ -157,19 +171,26 @@ function storeItems() {
 		mailList,
 		notes
 	];
-
-	localStorage.setItem(itemId, allFields.join(";")); 
-
 	
-alert("Items Stored")
-pullLocal ()	
+    var myYear              	= myDate.getFullYear();
+    var myMonth             	= myDate.getMonth();
+    var myDay               	= myDate.getDate();
+    var myHours             	= myDate.getHours();
+    var myMinutes           	= myDate.getMinutes();
+    var mySeconds           	= myDate.getSeconds();
+    var theKey = myYear + "" + myMonth + "" + myDay + "" + myHours + "" + myMinutes + "" + mySeconds;
+
+	localStorage.setItem(theKey, allFields.join(";")); 
+
+alert("Items Stored");
+pullLocal();	
 };
 
 //--------------------------------------------------------------------------------------------------------------------------------------
 
 //Pull values back from localStorage
 
-function pullLocal () {
+function pullLocal() {
     var date;
 	var	time;
 	var	fullName;
@@ -181,86 +202,71 @@ function pullLocal () {
 	var	mailList;
 	var	notes;
     
-    var myDate              = new Date();
-    var myYear              = myDate.getFullYear();
-    var myMonth             = myDate.getMonth();
-    var myDay               = myDate.getDate();
-    var myHours             = myDate.getHours();
-    var myMinutes           = myDate.getMinutes();
-    var mySeconds           = myDate.getSeconds();
-    var theKey = myDate + "" + myYear + "" + myMonth + "" + myDay + "" + myHours + "" + myMinutes + "" + mySeconds;
-    s
     for (i = 0; i<localStorage.length;i++){
         theKey   = localStorage.key(i);
         var myValue = localStorage.getItem(theKey);
-	}
 	
+	var values 			= myValue.split(";");
+	var date 		 	= values[0];
+	var time 		 	= values[1];
+	var fullName		= values[2];
+	var dob 		 	= values[3];
+	var email 		 	= values[4];
+	var phone 		 	= values[5];
+	var myrange 	 	= values[6];
+	var fitPackage 	 	= values[7];
+	var mailList 	 	= values[8];
+	var notes 		 	= values[9];
 	
-	var itemKey = localStorage.key(0);
-	var values = localStorage.getItem(itemKey); 
-	values = values.split(";");
-	var date 		 = values[0];
-	var time 		 = values[1];
-	var fullName	 = values[2];
-	var dob 		 = values[3];
-	var email 		 = values[4];
-	var phone 		 = values[5];
-	var myrange 	 = values[6];
-	var fitPackage 	 = values[7];
-	var mailList 	 = values[8];
-	var notes 		 = values[9];
+divMaker ("page2",theKey);
+pMaker (theKey, "The date: " + date);
+pMaker (theKey, "Appointment time: " + time);
+pMaker (theKey, "Full name: " + fullName);
+pMaker (theKey, "eMail: " + email);
+pMaker (theKey, "Phone: " + phone);
+pMaker (theKey, "Value: " + myrange);
+pMaker (theKey, "Fit Package: " + fitPackage);
+pMaker (theKey, "Mailing list: " + mailList);
+pMaker (theKey, "Notes: " + notes);
+
+if (fitPackage == "spinClass") {
+CreateImg(theKey, "../img/cardio.jpg", "Spin Class");
+}
+if (fitPackage == "kickBoxing") {
+CreateImg(theKey, "../img/cardio.jpg", "Kick Boxing");
+}
+if (fitPackage == "lowerBodySculpt") {
+CreateImg(theKey, "../img/strength.jpg", "Lower Body Sculpt");
+}
+if (fitPackage == "upperBodyMeltdown") {
+CreateImg(theKey, "../img/strength.jpg", "Upper Body Melt Down");
+}
+if (fitPackage == "yoga") {
+CreateImg(theKey, "../img/flexibility.jpg", "Yoga");
+}
+if (fitPackage == "pilates") {
+CreateImg(theKey, "../img/flexibility.jpg", "Pilates");
+}
+
+linkCreator(theKey);	
 	
-document.write('Date : ' + date + '<br />');
-document.write('Appointment Time : ' + time + '<br />');
-document.write('Client Full name : ' + fullName + '<br />');	
-	
-getItems()	
-	
+	};//End of for loop
 };//End of local storage pull
 
-//--------------------------------------------------------------------------------------------------------------------------------------
 
-function getItems(){
-		
-	document.getElementById("page2").style.display = "block";
-		
-		
-
-};//End of Get Items function
 	
-	//--------------------------------------------------------------------------------------------------------------------------------------
-
-
-//Add additonal entry to the form after first submission
-var counter = 1;
-var limit = 7;
-function addSession(page2){
-     if (counter == limit)  {
-          alert("You have reached the limit of adding " + counter + " inputs");
-     }
-     else {
-          var newdiv = document.createElement('page2');
-          newdiv.innerHTML = "Entry " + (counter + 1) + " <br><input type='text' name='myInputs[]'>";
-          document.getElementById(getItems).appendChild(newdiv);
-          counter++;
-     }
-};//End of addSession function section
-
-	//--------------------------------------------------------------------------------------------------------------------------------------
-
+//--------------------------------------------------------------------------------------------------------------------------------------
 //Clears the local Storage to reveal form
 function clearLocal() {
-	document.getElementById("page2").style.display = "none";
+	document.getElementById("page2").style.display = "block";
 	localStorage.clear();
 	return false;
 };
 
-//--------------------------------------------------------------------------------------------------------------------------------------
-//Some future jQuery features
-$(function() {
-	$('#date').datepicker({
-		showButtonPanel: true,
-		showAnim: 'fold',
-		dateFormat: 'm/dd/yy'
-	});
-});
+function deleteItem(theKey) {
+	var tellMe = confirm("Once you do this there is no going back");
+	if (tellMe == true){
+	localStorage.removeItem(theKey);
+	alert("Another one bites the dust");
+	}
+};
