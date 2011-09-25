@@ -1,14 +1,15 @@
-
-body {
-	background-color: #ccc;
-}
 /*
 Visual Frameworks
 09/2011
 Thomas Burns
 */
 
-
+body {
+	background-image:url(../img/main_bg.jpg);
+	background-color: #ccc;
+	background-repeat: repeat-x;
+	background-attachment: fixed;
+}
 
 #site_wrap {
 	width: 640px;
@@ -126,6 +127,9 @@ ul #fitButton a {
 	background-image: url(../img/nav_btn_bg.png);
 	background-position: 0px -120px;
 }
+fieldset {
+	background-color: #999;
+}
 
 #formTrigger ul {
 	text-decoration: none;
@@ -145,7 +149,7 @@ ul #fitButton a {
 	border: 1px solid #333;
 	list-style-type: none;
 	padding: 10px;
-		
+	background-color: #999;		
 }
 
 #link1 {
