@@ -8,24 +8,24 @@
 //Preloads and default var's and functions
 
 //Image variables
-	var cardioPic = new Image(); cardioPic.src 		= "img/cardio.jpg";
+	var cardioPic 	= new Image(); cardioPic.src 		= "img/cardio.jpg";
 	var strengthPic = new Image(); strengthPic.src 	= "img/strength.jpg";
-	var flexPic = new Image(); flexPic.src 			= "img/flexibility.jpg";
+	var flexPic 	= new Image(); flexPic.src 			= "img/flexibility.jpg";
 	
 window.onload = pullLocal();
 
 //Div Creator
 function divMaker (theParentId, aKey){
-	var topDoc = document.getElementById(theParentId);
-	var createDiv = document.createElement("div");
+	var topDoc 		= document.getElementById(theParentId);
+	var createDiv 	= document.createElement("div");
 	createDiv.setAttribute("id", aKey);
 	topDoc.appendChild(createDiv);
 };
 
 // Paragraph Creator.
 function pMaker(aKey, newText){
-    var nDiv   = document.getElementById(aKey);
-    var pDrop    = document.createElement("p");
+    var nDiv   	= document.getElementById(aKey);
+    var pDrop   = document.createElement("p");
     var myText  = document.createTextNode(newText);
     pDrop.appendChild(myText);
     // Set the new paragraph inside of the div here.
@@ -34,7 +34,7 @@ function pMaker(aKey, newText){
 // Creates an image inside of my div tag.
 function CreateImg(theKey, url, altText){
     var myImage = document.createElement("img");
-    var nDiv   = document.getElementById(theKey);
+    var nDiv   	= document.getElementById(theKey);
     myImage.setAttribute("id","fitnessImage");
     myImage.setAttribute("src",url);
     myImage.setAttribute("alt", altText);
@@ -42,9 +42,9 @@ function CreateImg(theKey, url, altText){
     nDiv.appendChild(myImage);
 };
 function linkCreator(theKey){
-    var link1     = document.createElement("a");
-    var link2     = document.createElement("a");
-    var myDiv   = document.getElementById(theKey);
+    var link1     	= document.createElement("a");
+    var link2     	= document.createElement("a");
+    var myDiv   	= document.getElementById(theKey);
         link1.setAttribute("href","JavaScript:DeleteItem(" + theKey + ")");
         link1.setAttribute("id", "link1");
         var myText1 = document.createTextNode("Delete Item");
@@ -195,7 +195,7 @@ function storeItems() {
 	pMaker (theKey, "The date: " + date);
 	pMaker (theKey, "Appointment time: " + time);
 	pMaker (theKey, "Full name: " + fullName);
-	pMaker (theKey, "eMail: " + email);
+	pMaker (theKey, "Email: " + email);
 	pMaker (theKey, "Phone: " + phone);
 	pMaker (theKey, "Value: " + myrange);
 	pMaker (theKey, "Fit Package: " + fitPackage);
@@ -263,7 +263,7 @@ function pullLocal() {
 	pMaker (theKey, "The date: " + date);
 	pMaker (theKey, "Appointment time: " + time);
 	pMaker (theKey, "Full name: " + fullName);
-	pMaker (theKey, "eMail: " + email);
+	pMaker (theKey, "Email: " + email);
 	pMaker (theKey, "Phone: " + phone);
 	pMaker (theKey, "Value: " + myrange);
 	pMaker (theKey, "Fit Package: " + fitPackage);
@@ -380,6 +380,3 @@ function saveEdit(theKey){
 	location.reload(true);
 };
 
-function start(){
-	
-};
