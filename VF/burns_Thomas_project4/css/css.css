@@ -94,12 +94,6 @@ body {
 	background-color: #ccc;
 }
 
-
-#page2 div {
-	border: 1px solid red;
-	list-style-type: none;
-}
-
 ul #fitButton a {
 	text-decoration: none;
 	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
@@ -141,3 +135,21 @@ ul #fitButton a {
 #fitButton span {
 	display: none;
 }/* This bit of code hides the text from all links wraped in the <span> </span> tags in the XHTML part of the code */
+
+#page1 #edit {
+	display: none;
+}
+
+
+#page2 div {
+	border: 1px solid #333;
+	list-style-type: none;
+	margin-right: 5px;
+	margin-left: 5px;
+}
+
+#page2 div li a {
+	display: block;
+	padding-right: 12px;
+	padding-left: 12px;
+}

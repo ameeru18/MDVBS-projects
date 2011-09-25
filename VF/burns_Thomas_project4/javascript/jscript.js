@@ -2,6 +2,8 @@
 //09/2011
 //Thomas Burns
 
+
+
 //--------------------------------------------------------------------------------------------------------------------------------------
 //Preloads and default var's and functions
 
@@ -9,6 +11,9 @@
 	var cardioPic = new Image(); cardioPic.src 		= "img/cardio.jpg";
 	var strengthPic = new Image(); strengthPic.src 	= "img/strength.jpg";
 	var flexPic = new Image(); flexPic.src 			= "img/flexibility.jpg";
+	
+window.onload = pullLocal();
+
 //Div Creator
 function divMaker (theParentId, aKey){
 	var topDoc = document.getElementById(theParentId);
@@ -40,7 +45,7 @@ function linkCreator(theKey){
     var link1     = document.createElement("a");
     var link2     = document.createElement("a");
     var myDiv   = document.getElementById(theKey);
-        link1.setAttribute("href","JavaScript:DeletItem(" + theKey + ")");
+        link1.setAttribute("href","JavaScript:DeleteItem(" + theKey + ")");
         link1.setAttribute("id", "link1");
         var myText1 = document.createTextNode("Delete Item");
         link1.appendChild(myText1);
@@ -67,6 +72,8 @@ function showValue(newValue){
 //Validation section
 function validateForm() {
 //Validate Date
+
+
 	var getdate = document.forms[0]["date"].value;
 	if (getdate == "") {
 		document.getElementById("date").style.border = "1px solid red";
@@ -136,6 +143,7 @@ function validateForm() {
 			document.getElementById("phone").style.border = "1px solid #ccc";
 		};
 
+
 storeItems();	
 
 };
@@ -145,20 +153,18 @@ storeItems();
 
 //--------------------------------------------------------------------------------------------------------------------------------------
 
-
-
 //Beginning of storeItems function
 function storeItems() {
-	var date 		= document.getElementById("date").value;
-	var time 		= document.getElementById("time").value;
-	var fullName 	= document.getElementById("fullName").value;
-	var dob 		= document.getElementById("dob").value;
-	var email 		= document.getElementById("email").value;
-	var phone 		= document.getElementById("phone").value;
-	var myrange 	= document.getElementById("myrange").value;
-	var fitPackage	= document.getElementById("fitPackage").value;
-	var mailList 	= document.getElementById("mailList").value;
-	var notes 		= document.getElementById("notes").value;
+	var date 				= document.getElementById("date").value;
+	var time 				= document.getElementById("time").value;
+	var fullName 			= document.getElementById("fullName").value;
+	var dob 				= document.getElementById("dob").value;
+	var email 				= document.getElementById("email").value;
+	var phone 				= document.getElementById("phone").value;
+	var myrange 			= document.getElementById("myrange").value;
+	var fitPackage			= document.getElementById("fitPackage").value;
+	var mailList 			= document.getElementById("mailList").value;
+	var notes 				= document.getElementById("notes").value;
 	var allFields = [
 		date,
 		time,
@@ -172,6 +178,7 @@ function storeItems() {
 		notes
 	];
 	
+	var myDate					= new Date();
     var myYear              	= myDate.getFullYear();
     var myMonth             	= myDate.getMonth();
     var myDay               	= myDate.getDate();
@@ -182,8 +189,42 @@ function storeItems() {
 
 	localStorage.setItem(theKey, allFields.join(";")); 
 
-alert("Items Stored");
-pullLocal();	
+
+// Show this item on the screen.
+	divMaker ("page2",theKey);
+	pMaker (theKey, "The date: " + date);
+	pMaker (theKey, "Appointment time: " + time);
+	pMaker (theKey, "Full name: " + fullName);
+	pMaker (theKey, "eMail: " + email);
+	pMaker (theKey, "Phone: " + phone);
+	pMaker (theKey, "Value: " + myrange);
+	pMaker (theKey, "Fit Package: " + fitPackage);
+	pMaker (theKey, "Mailing list: " + mailList);
+	pMaker (theKey, "Notes: " + notes);
+	
+	if (fitPackage == "spinClass") {
+	CreateImg(theKey, cardioPic.src, "Spin Class");
+	}
+	if (fitPackage == "kickBoxing") {
+	CreateImg(theKey, cardioPic.src, "Kick Boxing");
+	}
+	if (fitPackage == "lowerBodySculpt") {
+	CreateImg(theKey, strengthPic.src, "Lower Body Sculpt");
+	}
+	if (fitPackage == "upperBodyMeltdown") {
+	CreateImg(theKey, strengthPic.src, "Upper Body Melt Down");
+	}
+	if (fitPackage == "yoga") {
+	CreateImg(theKey, flexPic.src, "Yoga");
+	}
+	if (fitPackage == "pilates") {
+	CreateImg(theKey, flexPic.src, "Pilates");
+	}
+	
+	linkCreator(theKey);	
+	
+	alert("Items Stored");
+
 };
 
 //--------------------------------------------------------------------------------------------------------------------------------------
@@ -218,55 +259,127 @@ function pullLocal() {
 	var mailList 	 	= values[8];
 	var notes 		 	= values[9];
 	
-divMaker ("page2",theKey);
-pMaker (theKey, "The date: " + date);
-pMaker (theKey, "Appointment time: " + time);
-pMaker (theKey, "Full name: " + fullName);
-pMaker (theKey, "eMail: " + email);
-pMaker (theKey, "Phone: " + phone);
-pMaker (theKey, "Value: " + myrange);
-pMaker (theKey, "Fit Package: " + fitPackage);
-pMaker (theKey, "Mailing list: " + mailList);
-pMaker (theKey, "Notes: " + notes);
-
-if (fitPackage == "spinClass") {
-CreateImg(theKey, "../img/cardio.jpg", "Spin Class");
-}
-if (fitPackage == "kickBoxing") {
-CreateImg(theKey, "../img/cardio.jpg", "Kick Boxing");
-}
-if (fitPackage == "lowerBodySculpt") {
-CreateImg(theKey, "../img/strength.jpg", "Lower Body Sculpt");
-}
-if (fitPackage == "upperBodyMeltdown") {
-CreateImg(theKey, "../img/strength.jpg", "Upper Body Melt Down");
-}
-if (fitPackage == "yoga") {
-CreateImg(theKey, "../img/flexibility.jpg", "Yoga");
-}
-if (fitPackage == "pilates") {
-CreateImg(theKey, "../img/flexibility.jpg", "Pilates");
-}
-
-linkCreator(theKey);	
+	divMaker ("page2",theKey);
+	pMaker (theKey, "The date: " + date);
+	pMaker (theKey, "Appointment time: " + time);
+	pMaker (theKey, "Full name: " + fullName);
+	pMaker (theKey, "eMail: " + email);
+	pMaker (theKey, "Phone: " + phone);
+	pMaker (theKey, "Value: " + myrange);
+	pMaker (theKey, "Fit Package: " + fitPackage);
+	pMaker (theKey, "Mailing list: " + mailList);
+	pMaker (theKey, "Notes: " + notes);
 	
-	};//End of for loop
+	if (fitPackage == "spinClass") {
+	CreateImg(theKey, cardioPic.src, "Spin Class");
+	}
+	if (fitPackage == "kickBoxing") {
+	CreateImg(theKey, cardioPic.src, "Kick Boxing");
+	}
+	if (fitPackage == "lowerBodySculpt") {
+	CreateImg(theKey, strengthPic.src, "Lower Body Sculpt");
+	}
+	if (fitPackage == "upperBodyMeltdown") {
+	CreateImg(theKey, strengthPic.src, "Upper Body Melt Down");
+	}
+	if (fitPackage == "yoga") {
+	CreateImg(theKey, flexPic.src, "Yoga");
+	}
+	if (fitPackage == "pilates") {
+	CreateImg(theKey, flexPic.src, "Pilates");
+	}
+	
+	linkCreator(theKey);	
+		
+		};//End of for loop
 };//End of local storage pull
 
 
 	
 //--------------------------------------------------------------------------------------------------------------------------------------
 //Clears the local Storage to reveal form
+
+
 function clearLocal() {
-	document.getElementById("page2").style.display = "block";
-	localStorage.clear();
-	return false;
+	    localStorage.clear();
+					location.reload(true);
 };
 
-function deleteItem(theKey) {
+function EditItem(theKey){
+
+	var theArray = localStorage.getItem(theKey);
+	var values = theArray.split(';');
+	
+	var date 		= values[0];
+	var time 		= values[1];
+	var fullName 	= values[2];
+	var dob 		= values[3];
+	var email 		= values[4];
+	var phone 		= values[5];
+	var myrange 	= values[6];
+	var fitPackage 	= values[7];
+	var mailList 	= values[8];
+	var notes 		= values[9];
+	
+	document.getElementById("date").value 		= date;
+	document.getElementById("time").value 		= time;
+	document.getElementById("fullName").value 	= fullName;
+	document.getElementById("dob").value 		= dob;
+	document.getElementById("email").value 		= email;
+	document.getElementById("phone").value 		= phone;
+	document.getElementById("myrange").value 	= myrange;
+		showValue(myrange);
+	document.getElementById("fitPackage").value = fitPackage;
+		if (mailList) {
+	document.getElementById("mailList").setAttribute("checked", "checked");
+		};
+	document.getElementById("notes").value 		= notes;
+	
+	document.getElementById("edit").style.display = "block";
+	document.getElementById("edit").setAttribute("onclick","JavaScript:saveEdit(" + theKey + ")");
+	document.getElementById("submit").style.display = "none";
+	
+};
+
+function DeleteItem(theKey) {
 	var tellMe = confirm("Once you do this there is no going back");
 	if (tellMe == true){
 	localStorage.removeItem(theKey);
 	alert("Another one bites the dust");
 	}
+	location.reload(true);
+
+};
+
+function saveEdit(theKey){
+	var date 				= document.getElementById("date").value;
+	var time 				= document.getElementById("time").value;
+	var fullName 			= document.getElementById("fullName").value;
+	var dob 				= document.getElementById("dob").value;
+	var email 				= document.getElementById("email").value;
+	var phone 				= document.getElementById("phone").value;
+	var myrange 			= document.getElementById("myrange").value;
+	var fitPackage			= document.getElementById("fitPackage").value;
+	var mailList 			= document.getElementById("mailList").value;
+	var notes 				= document.getElementById("notes").value;
+	var allFields = [
+		date,
+		time,
+		fullName,
+		dob,
+		email,
+		phone,
+		myrange,
+		fitPackage,
+		mailList,
+		notes
+	];
+	
+	localStorage.setItem(theKey, allFields.join(";")); 
+
+	location.reload(true);
+};
+
+function start(){
+	
 };
