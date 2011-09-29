@@ -150,6 +150,8 @@ fieldset {
 
 #sInput {
 	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	height: 20px;
+	width: 300px;
 }
 
 #sLabel {
@@ -167,11 +169,95 @@ fieldset {
 	list-style-type: none;
 }
 
-#fitButton span {
+#fitButton1 span {
 	display: none;
 }/* This bit of code hides the text from all links wraped in the <span> </span> tags in the XHTML part of the code */
 
-ul #fitButton a {
+#fitButton2 span {
+	display: none;
+}/* This bit of code hides the text from all links wraped in the <span> </span> tags in the XHTML part of the code */
+
+
+#fitButton3 span {
+	display: none;
+}/* This bit of code hides the text from all links wraped in the <span> </span> tags in the XHTML part of the code */
+
+
+#fitButton4 span {
+	display: none;
+}/* This bit of code hides the text from all links wraped in the <span> </span> tags in the XHTML part of the code */
+
+
+ul #fitButton1 a {
+	text-decoration: none;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	display: block;
+	height: 60px;
+	width: 380px;
+	text-align: center;
+	text-decoration: none;
+	background-image: url(../img/deal_btn_bg.png);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	-moz-box-shadow: 5px 5px 7px #888;
+	-moz-border-radius-bottomright: 15px;
+	-webkit-box-shadow: 5px 5px 7px #888;
+	-webkit-border-bottom-right-radius: 15px;
+	-webkit-border-bottom-left-radius: 15px;
+	-webkit-border-top-left-radius: 15px;
+	-webkit-border-top-right-radius: 15px;
+	margin-left: 100px;
+	margin-bottom: 5px;
+}
+
+ul #fitButton2 a {
+	text-decoration: none;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	display: block;
+	height: 60px;
+	width: 380px;
+	text-align: center;
+	text-decoration: none;
+	background-image: url(../img/pack_btn_bg.png);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	-moz-box-shadow: 5px 5px 7px #888;
+	-moz-border-radius-bottomright: 15px;
+	-webkit-box-shadow: 5px 5px 7px #888;
+	-webkit-border-bottom-right-radius: 15px;
+	-webkit-border-bottom-left-radius: 15px;
+	-webkit-border-top-left-radius: 15px;
+	-webkit-border-top-right-radius: 15px;
+	margin-left: 100px;
+	margin-bottom: 5px;
+}
+
+ul #fitButton3 a {
+	text-decoration: none;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	display: block;
+	height: 60px;
+	width: 380px;
+	text-align: center;
+	text-decoration: none;
+	background-image: url(../img/goal_btn_bg.png);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	-moz-box-shadow: 5px 5px 7px #888;
+	-moz-border-radius-bottomright: 15px;
+	-webkit-box-shadow: 5px 5px 7px #888;
+	-webkit-border-bottom-right-radius: 15px;
+	-webkit-border-bottom-left-radius: 15px;
+	-webkit-border-top-left-radius: 15px;
+	-webkit-border-top-right-radius: 15px;
+	margin-left: 100px;
+	margin-bottom: 5px;
+}
+
+ul #fitButton4 a {
 	text-decoration: none;
 	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 	font-weight: bold;
@@ -194,12 +280,43 @@ ul #fitButton a {
 	margin-bottom: 5px;
 }
 
-#fitButton a:hover {
-	background-image: url(../img/nav_btn_bg.png);
+#fitButton1 a:hover {
+	background-image: url(../img/deal_btn_bg.png);
 	background-position: 0px -60px;
 }
 
-#fitButton a:active {
-	background-image: url(../img/nav_btn_bg.png);
+#fitButton2 a:hover {
+	background-image: url(../img/pack_btn_bg.png);
+	background-position: 0px -60px;
+}
+
+#fitButton3 a:hover {
+	background-image: url(../img/goal_btn_bg.png);
+	background-position: 0px -60px;
+}
+
+
+#fitButton4 a:hover {
+	background-image: url(../img/appnt_btn_bg.png);
+	background-position: 0px -60px;
+}
+
+#fitButton1 a:active {
+	background-image: url(../img/deal_btn_bg.png);
+	background-position: 0px -120px;
+}
+
+#fitButton2 a:active {
+	background-image: url(../img/pack_btn_bg.png);
+	background-position: 0px -120px;
+}
+
+#fitButton3 a:active {
+	background-image: url(../img/goal_btn_bg.png);
+	background-position: 0px -120px;
+}
+
+#fitButton4 a:active {
+	background-image: url(../img/appnt_btn_bg.png);
 	background-position: 0px -120px;
 }
