@@ -77,7 +77,7 @@ function validateForm() {
 	var getdate = document.forms[0]["date"].value;
 	if (getdate == "") {
 		document.getElementById("date").style.border = "1px solid red";
-		var slap = prompt("Enter the date you wish to Git Fit", "");
+		var slap = prompt("Enter the date you wish to Git Fit", "01/01/2011");
 		if (slap != null && slap != "") {
 			document.forms[0]["date"].value = slap;	
 		}	
@@ -91,7 +91,7 @@ function validateForm() {
 	var getFullName = document.forms[0]["fullName"].value;
 	if (getFullName == "") {
 		document.getElementById("fullName").style.border = "1px solid red";
-		var slap = prompt("Enter your full name to proceed", "");
+		var slap = prompt("Enter your full name to proceed", "John Doe");
 		if (slap != null && slap != "") {
 			document.forms[0]["fullName"].value = slap;	
 		}	
@@ -105,7 +105,7 @@ function validateForm() {
 	var getdob = document.forms[0]["dob"].value;
 	if (getdob == "") {
 		document.getElementById("dob").style.border = "1px solid red";
-		var slap = prompt("Enter your date of birth to proceed", "");
+		var slap = prompt("Enter your date of birth to proceed", "01/01/2011");
 		if (slap != null && slap != "") {
 			document.forms[0]["dob"].value = slap;	
 		}	
@@ -121,7 +121,7 @@ function validateForm() {
 	var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 		if (!(re.exec(getemail))) {
 			document.getElementById("email").style.border = "1px solid red";
-			var slap = prompt("Enter your email address to proceed", "");
+			var slap = prompt("Enter your email address to proceed", "johndoe@yahoo.com");
 			document.forms[0]["email"].value = slap;
 			return validateForm();
 		};
@@ -131,7 +131,7 @@ function validateForm() {
 	var re = /^\(?(\d{3})\)?[\.\-\/ ]?(\d{3})[\.\-\/ ]?(\d{4})$/;
 		if (!(re.exec(getephone))) {
 			document.getElementById("phone").style.border = "1px solid red";
-			var slap = prompt("Enter your phone number to proceed", "");
+			var slap = prompt("Enter your phone number to proceed", "222-333-4444");
 			if (slap != null && slap != "") {
 				document.forms[0]["phone"].value = slap;
 			}
