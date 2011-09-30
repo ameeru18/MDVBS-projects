@@ -146,6 +146,8 @@ fieldset {
 
 #searchDiv {
 	margin-left: 130px;
+	margin-top: 15px;
+	margin-bottom: 15px;
 }
 
 #sInput {
@@ -187,6 +189,29 @@ fieldset {
 	display: none;
 }/* This bit of code hides the text from all links wraped in the <span> </span> tags in the XHTML part of the code */
 
+#callToAction span {
+	display: none;
+}/* This bit of code hides the text from all links wraped in the <span> </span> tags in the XHTML part of the code */
+
+#callToAction {
+	list-style-type: none;
+	
+}
+
+#callToAction a {
+	list-style-type: none;
+	width: 420px;
+	height: 336px;
+}
+
+#actCall {
+	background-image: url(../img/lifted.jpg);
+	width: 420px;
+	height: 336px;
+	margin-right: auto;
+	margin-left: auto;
+	background-repeat: no-repeat;
+}
 
 ul #fitButton1 a {
 	text-decoration: none;
